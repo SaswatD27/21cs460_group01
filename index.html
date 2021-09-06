@@ -1,12 +1,95 @@
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
 
-<head>
-    <title>Course Project | Suraj Patel | Saswat Das | CS460, Machine Learning, Fall Semester, 2021-22</title>
-    <style>
-body {
-  font-family: Verdana, sans-serif;
-}
-</style>
+    body {
+      margin:0;
+      padding:0;
+      font-family: "Helvetica Neue", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background-color:white;
+    }
+
+    .plot {
+      width: 100%;
+      height: 100%;
+    }
+
+    .top-container {
+      background-color: #f1f1f1;
+      padding: 30px;
+      margin: 0%;
+    }
+
+    .header {
+      padding: 10px 16px;
+      background: rgb(0, 0, 0);
+      text-align: center;
+      color: #f1f1f1;
+      border:0%
+    }
+
+    .content {
+      padding: 16px;
+      margin: 15%;
+      margin-top: 0%;
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .sticky + .content {
+      padding-top: 102px;
+      margin: 15%;
+      margin-top: 0%;
+    }
+
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-left: 8%;
+    }
+
+    /* Clear floats after image containers */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+
+    img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    #timeline {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #timeline td, #timeline th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #timeline tr:nth-child(even){background-color: #f2f2f2;}
+
+    #timeline tr:hover {background-color: #ddd;}
+
+    #timeline th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color:black;
+      color: white;
+    }
+    </style>
 </head>
 <div class="container"><header>
 <h1 style="text-align: center;">Course Project, CS460, Fall 2021-22</h1>
