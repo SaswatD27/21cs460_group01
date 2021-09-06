@@ -6,7 +6,7 @@
 <hr />
 <h3>1. Project Proposal (6 Sept 2021)</h3>
 <h4>Introduction</h4>
-<img src="https://blog.ml.cmu.edu/wp-content/uploads/2019/11/Screen-Shot-2019-11-12-at-10.41.38-AM-970x377.png" alt="Federated Learning Schematic" width="500" />
+<img style="display: block; margin-left: auto; margin-right: auto;" src="https://blog.ml.cmu.edu/wp-content/uploads/2019/11/Screen-Shot-2019-11-12-at-10.41.38-AM-970x377.png" alt="Federated Learning Schematic" width="500" />
 <p>&nbsp;</p>
 <p><em>Federated learning</em> (abbreviated as <em>FL</em>) refers to the practice of conducting machine learning based on several users' data by having each user, given an initial global model by a central server, <em>locally train&nbsp;</em>a model on their local devices, then communicate their locally trained model to the central server, following which each user's local model is&nbsp;<em>aggregated&nbsp;</em>at the central server with that of others, and used to update the global model.</p>
 <p>This is in contrast to centralised learning, where the users' data would have been sent to the central server, and a model would have been trained on all that collected data in one central server.</p>
@@ -21,6 +21,21 @@
 <li>Communication costs post local training and optimising number of communication rounds between each local device and the central server:</li>
 <li>Cost of computation due to local training on each device and effects on user experience during local training;</li>
 <li>Possible improvements in aggregation algorithms;</li>
-<li>Enhancement of privacy, and making sure no adversary can draw conclusions from the (say, weights of the) local models about an individual user's personal information or behaviour.</li>
+<li>Enhancement of privacy, and making sure no adversary can conclude the (say, weights of the) local models about an individual user's personal information or behaviour.</li>
 </ul>
-<hr /><embed src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/CS460-ML-Project-2021/raw/main/CS460%20-%20Project%20Proposal.pdf" width="500" height="375"></embed></div>
+<h4>What we intend to do - a brief sketch</h4>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Implement a Federated Learning algorithm (tentatively </span><span style="font-weight: 400;">FederatedAveraging</span><span style="font-weight: 400;">) after locally training models using algorithms like SGD (as suggested) on generated datasets, or even implementing some neural network(s) if possible using popular datasets (viz. FEMNIST, Shakespeare, Sentiment140, CIFAR 10) if we are feeling bold. We can use TensorFlow and SherpaAI for this if possible/needed (no promises).</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Using the (local) learning algorithm as a baseline, we can compare the results of our FL based trained-and-aggregated model with centralised learning with the same algorithm, and some other popular algorithms.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><span style="font-weight: 400;">Suggest improvements to the paradigm just implemented in terms of</span></span>
+<ol>
+<li>The aggregating formula/algorithm;</li>
+<li>minimising rounds of communication and computational cost per local device; and/or</li>
+<li>enhancing privacy (viz. by adding differential privacy into the mix).</li>
+</ol>
+</li>
+</ul>
+<p><span style="font-weight: 400;">Then we will see how said tweaks work in terms of these metrics and report any observed improvements/changes (fingers crossed).</span></p>
+<hr />
+<p><embed style="display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/CS460-ML-Project-2021/raw/main/CS460%20-%20Project%20Proposal.pdf" width="500" height="375"></embed></p>
+</div>
