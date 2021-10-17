@@ -307,10 +307,121 @@
 <p>We again use the same setup and parameters as our vanilla NbAFL implementation, but with probabilistic binarisation implemented atop it.<br />Time taken <span class="math inline">\(\approx 356\)</span> seconds.<br />Average Training Error <span class="math inline">\(\approx 0.021241\)</span>.<br />Average Testing Error <span class="math inline">\(\approx 0.019635\)</span></p>
 </li>
 <li><strong>NbAFL with Dynamic Sampling</strong>
-<p>We again adopt the same setup as that for our vanilla NbAFL implementation, but instead of static sampling of clients, we sample clients with an initial rate of <span class="math inline">\(0.25\)</span>, which decays by a factor of <span class="math inline">\(\frac 1{\exp(\beta t)}\)</span>, where <span class="math inline">\(t =\)</span> number of rounds elapsed. We take <span class="math inline">\(\beta=0.05\)</span>.<br />
-Time taken <span class="math inline">\(\approx 334\)</span> seconds.<br />
-(Saves on time and no. of communication rounds!)<br />
-Average Training Error <span class="math inline">\(\approx 0.010684\)</span>.<br />
-Average Testing Error <span class="math inline">\(\approx  0.010908\)</span>.</p>
+<p>We again adopt the same setup as that for our vanilla NbAFL implementation, but instead of static sampling of clients, we sample clients with an initial rate of <span class="math inline">\(0.25\)</span>, which decays by a factor of <span class="math inline">\(\frac 1{\exp(\beta t)}\)</span>, where <span class="math inline">\(t =\)</span> number of rounds elapsed. We take <span class="math inline">\(\beta=0.05\)</span>.<br />Time taken <span class="math inline">\(\approx 334\)</span> seconds.<br />(Saves on time and no. of communication rounds!)<br />Average Training Error <span class="math inline">\(\approx 0.010684\)</span>.<br />Average Testing Error <span class="math inline">\(\approx 0.010908\)</span>.</p>
 </li>
 </ol>
+<p>The following table summarises the parameters used for and the results of our experiments (to be fair, we had to fiddle with a fair of different values for parameters and variations in algorithms to fix these for now)</p>
+<table>
+<thead>
+<tr>
+<th>Name of Model</th>
+<th>T</th>
+<th>Client Sampling Rate</th>
+<th>$\varepsilon$</th>
+<th>$delta$</th>
+<th>Training Error</th>
+<th>Testing Error</th>
+<th>Time Taken (sec)</th>
+<th>Other Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Centralised SGD</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>$3.2472\times 10^{-29}$</td>
+<td>$3.2154 \times 10^{-29}$</td>
+<td>268 - 270</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Vanilla \texttt{FedAvg}</td>
+<td>5</td>
+<td>0.25</td>
+<td>-</td>
+<td>-</td>
+<td>$2.5331\times 10^{-18}$</td>
+<td>$2.6021\times 10^{-18}$</td>
+<td>362</td>
+<td>-</td>
+</tr>
+<tr>
+<td>NbAFL</td>
+<td>5</td>
+<td>0.25</td>
+<td>70</td>
+<td>0.01</td>
+<td>$7.2562\times 10^{-7}$</td>
+<td>$6.6740\times10^{-7}$</td>
+<td>349</td>
+<td>-</td>
+</tr>
+<tr>
+<td>NbAFL w/ Random Mask</td>
+<td>5</td>
+<td>0.25</td>
+<td>70</td>
+<td>0.01</td>
+<td>0.006601</td>
+<td>0.007577</td>
+<td>356</td>
+<td>$s=0.25$</td>
+</tr>
+<tr>
+<td>NbAFL w/ Prob. Bin.</td>
+<td>5</td>
+<td>0.25</td>
+<td>70</td>
+<td>0.01</td>
+<td>0.021241</td>
+<td>0.019635</td>
+<td>356</td>
+<td>-</td>
+</tr>
+<tr>
+<td>NbAFL w/ Dyn. Samp.</td>
+<td>5</td>
+<td>0.25</td>
+<td>70</td>
+<td>0.01</td>
+<td>0.010684</td>
+<td>0.010908</td>
+<td>334</td>
+<td>$\beta=0.05$</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the errors happen to be quite small compared to the weight vectors' magnitude, with a maximum being in the neighbourhood of 1% error to "true" weight vector (norm/coordinates) ratio, roughly.</p>
+<h4>Suggested Tweaks and Possible Improvements to Try Out to Extend the Baselines</h4>
+<ul>
+<li>
+<p>Silo-ing users with similar characteristics and running a separate FL paradigm within these silos;</p>
+</li>
+<li>
+<p>Applications to dapps on P2P networks;</p>
+</li>
+<li>
+<p>Trying other mechanisms (viz. exponential) out on NbAFL for possible improvement;</p>
+</li>
+<li>
+<p>Trying Selective Mask from out, and slightly diffusing the choice from the top <span class="math inline">\(k\)</span> updates to some of the lower updates;</p>
+</li>
+<li>
+<p>Making dynamic sample more dynamic and efficient by calibrating decay w.r.t. error per round of communication (more error<span class="math inline">\(\implies\)</span>less decay;</p>
+</li>
+<li>
+<p>Exploring mutual benefits of probabilistic quantisation and noise addition, calibrating no. of quanta to the magnitude of the noise;</p>
+</li>
+<li>
+<p>Looking at tweaks to <code>FedAvg</code> in certain contexts;</p>
+</li>
+<li>
+<p>Anything else that strikes us.</p>
+</li>
+</ul>
+<p>We may tentatively try implementing the above FL models for more complex local training algorithms (viz. ConvNets using FEMNIST), but this is secondary/optional.</p>
+<hr />
+<p>&nbsp;</p>
