@@ -91,11 +91,12 @@
     }
     </style>
 </head>
+<div>
 <div class="container"><header>
 <h1 style="text-align: center;">Course Project, CS460, Fall 2021-22</h1>
 <h2 style="text-align: center;">On Federated Learning and Possible Improvements</h2>
 </header>
-  <p style="text-align: center;">Saswat Das <br />1811138 | saswat.das@niser.ac.in | School of Mathematical Sciences, NISER, HBNI <br />Suraj Ku. Patel<br />1811163 | suraj.kpatel@niser.ac.in | School of Physical Sciences, NISER, HBNI <br /><br /><a href="https://github.com/SaswatD27/CS460-ML-Project-2021">Project Github Repository</a></p>
+<p style="text-align: center;">Saswat Das <br />1811138 | saswat.das@niser.ac.in | School of Mathematical Sciences, NISER, HBNI <br />Suraj Ku. Patel<br />1811163 | suraj.kpatel@niser.ac.in | School of Physical Sciences, NISER, HBNI <br /><br /><a href="https://github.com/SaswatD27/CS460-ML-Project-2021">Project Github Repository</a></p>
 <hr />
 <h3>1. Project Proposal (6 Sept 2021)</h3>
 <h4>Introduction</h4>
@@ -149,13 +150,117 @@
 </ul>
 <h4>Relevant Papers</h4>
 <ul>
-<li aria-level="1">McMahan, H. B. et al. “Communication-Efficient Learning of Deep Networks from Decentralized Data.” AISTATS (2017).</li>
-<li aria-level="1">Konecný, Jakub et al. “Federated Learning: Strategies for Improving Communication Efficiency.” ArXiv abs/1610.05492 (2016): n. pag.</li>
-<li>Barroso, Nuria Rodríguez et al. “Federated Learning and Differential Privacy: Software tools analysis, the Sherpa.ai FL framework and methodological guidelines for preserving data privacy.” Inf. Fusion 64 (2020): 270-292.</li>
+<li aria-level="1">McMahan, H. B. et al. &ldquo;Communication-Efficient Learning of Deep Networks from Decentralized Data.&rdquo; AISTATS (2017).</li>
+<li aria-level="1">Konecn&yacute;, Jakub et al. &ldquo;Federated Learning: Strategies for Improving Communication Efficiency.&rdquo; ArXiv abs/1610.05492 (2016): n. pag.</li>
+<li>Barroso, Nuria Rodr&iacute;guez et al. &ldquo;Federated Learning and Differential Privacy: Software tools analysis, the Sherpa.ai FL framework and methodological guidelines for preserving data privacy.&rdquo; Inf. Fusion 64 (2020): 270-292.</li>
 </ul>
 <hr />
 <h4>Project Presentation Slides</h4>
-<p><embed style="display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/CS460-ML-Project-2021/raw/main/CS460%20-%20Project%20Proposal.pdf" width="500" height="375"></embed></p>
-<hr/>
+<embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/CS460-ML-Project-2021/raw/main/CS460%20-%20Project%20Proposal.pdf" width="500" height="375"></embed><hr /></div>
 </div>
+<h3>2. Project Midway</h3>
+<h4>Literature Review</h4>
+<p>Some of the most important papers we referred to are listed below.</p>
+<ul>
+<li>McMahan, H. Brendan et al. &ldquo;Communication-Efficient Learning of Deep Networks from Decentralized Data.&rdquo;&nbsp;<em>AISTATS</em>&nbsp;(2017).</li>
+<li>Konecn&yacute;, Jakub et al. &ldquo;Federated Learning: Strategies for Improving Communication Efficiency.&rdquo;&nbsp;<em>ArXiv</em> abs/1610.05492 (2016).</li>
+<li>Wei, Kang et al. &ldquo;Federated Learning With Differential Privacy: Algorithms and Performance Analysis.&rdquo;&nbsp;<em>IEEE Transactions on Information Forensics and Security</em>&nbsp;15 (2020): 3454-3469.</li>
+<li>Ji, Shaoxiong et al. &ldquo;Dynamic Sampling and Selective Masking for Communication-Efficient Federated Learning.&rdquo;&nbsp;<em>ArXiv</em> abs/2003.09603 (2020).</li>
+</ul>
+<ol>
+<li><strong>McMahan et al</strong>
+<ul>
+<li>
+<p>Introduces federated learning;</p>
+</li>
+<li>
+<p>Addresses issues such as unbalanced volume of datapoints across all clients, limited communication capabilities of clients (via multiple rounds of communication), and the mass distributed nature of the clients, and the non-IID nature of data as an individual&rsquo;s data is specific;</p>
+</li>
+<li>
+<p>Introduces <code>FedAvg</code> (<span class="math inline">\(w_{t+1}\gets\sum_{i=1}^K\frac{n_k}{n}w_{t+1}^k\)</span>);</p>
+</li>
+<li>
+<p>Talks about controlling parallelism of local computation and increased local computation by varying batch size for gradient descent (decreasing it increases amount/precision of computation, no. of rounds, and no. of clients queried per round (affects parallelism).</p>
+</li>
+</ul>
+</li>
+<li><strong>Wei et al</strong>
+<ul>
+<li>
+<p>Introduces Gaussian noise w.r.t. a clipping parameter <span class="math inline">\(C\)</span> to weight vector uploads, weights scaled w.r.t. <span class="math inline">\(C\)</span>;</p>
+</li>
+<li>
+<p>Motivation: Na&iuml;vely uploaded weights carry the risk of being used by adversaries to compromise users;</p>
+</li>
+<li>
+<p>Proposes uplink and optional downlink noise addition;</p>
+</li>
+<li>
+<p>Takes fairly large values for the privacy budget;</p>
+</li>
+<li>
+<p>Accuracy improves with no. of clients queried and rounds of communication;</p>
+</li>
+<li>
+<p>Best accuracy when clients have (near) identical amounts of quality data;</p>
+</li>
+<li>
+<p>Akin to central differential privacy, straightforward noise addition.</p>
+</li>
+</ul>
+</li>
+<li><strong>Konečn&yacute; et al</strong>
+<ul>
+<li>
+<p>Introduces methods to reduce the uplink communication costs by reducing the size of the updated model sent back by the client to the server.</p>
+</li>
+<li>
+<p>Motivation: Poor bandwidth/expensive connections of a number of the participating devices (clients) leads to problems during the aggregation of data for FL.</p>
+</li>
+<li>
+<p>Two methods for sending a smaller model are:</p>
+<ul>
+<li>
+<p><em>Structured updates</em>, updates are from a restricted space and can be parametrized using a smaller number of variables. Algorithms: Low Rank and Random Mask.</p>
+</li>
+<li>
+<p><em>Sketched updates</em>, full model updates are learned but a compressed model update is sent to the server. Algorithms: Subsampling, Probabilistic quantization, and structured random rotations.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>FedAvg</code> is used for the experiments to decrease the number of rounds of communication required to train a good model.</p>
+</li>
+<li>
+<p>Conclusion of the paper</p>
+<ul>
+<li>
+<p>Random mask performs significantly better than low rank, as the size of the updates is reduced.</p>
+</li>
+<li>
+<p>Random masking gives higher accuracy as compared to sketched updates method but reaches moderate accuracy much slower.</p>
+</li>
+<li>
+<p>Quantization algorithm alone is very unstable For a small number of quantization bits and smaller modes, and random rotation with quantization is more stable and has improved performance as compared to without rotation.</p>
+</li>
+<li>
+<p>By increasing the number of rounds of training, the fraction of clients taken per round can be minimised without risking accuracy.</p>
+</li>
+<li>
+<p>Introduced an important and practical tradeoff in the FL: one can select more clients in each round while having each of them communicate less, and obtain the same accuracy as using fewer clients, but having each of them communicate more.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Extra:<strong> Ji et al</strong>
+<ul>
+<li>Proposes dynamic sampling and selective mask;</li>
+<li>Dynamic sampling: In contrast to the usual way of sampling clients during each round of communication (i.e. static sampling), we define a decay constant, called <span class="math inline">\(\beta\), and if the initial sampling rate is <span class="math inline">\(C\)</span>, then we choose <span class="math inline">\(\frac{C}{\exp(\beta t)}\)</span> fraction of clients for round <span class="math inline">\(t\)</span> (starting with <span class="math inline">\(t=0\)</span>)</span>;</li>
+<li>Selective mask: Instead of fully (uniformly) randomised selection of indices for a mask, choose the top <span class="math inline">\(k\)</span> indices with the most significant updates to the initial model for each client;</li>
+<li>Selective mask consistently outperformed random mask in terms of accuracy and rate of convergence;</li>
+<li>Dynamic sampling gave accuracy comparable to static sampling, but at a significant loss in communication cost.</li>
+</ul>
+</li>
+</ol>
 </html>
