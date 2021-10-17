@@ -196,6 +196,13 @@
 <li>
 <p>Talks about controlling parallelism of local computation and increased local computation by varying batch size for gradient descent (decreasing it increases amount/precision of computation, no. of rounds, and no. of clients queried per round (affects parallelism).</p>
 </li>
+<li><strong>Remarks:&nbsp;</strong>
+<ul>
+<li>This provides us with a robust federated learning paradigm, but of course, as we shall soon see, this is a naive approach in terms of privacy, as there have supposedly been attacks in which adversaries have used weight updates in this scheme, say from a facial recognition application, to compromise the identities of users;</li>
+<li>Also this may seem pretty intuitive (and as we shall see, this works pretty well for SGD), it is sort of a simple arithmetic mean at the end of the day, and might be unable to capture some subtle nuances of the weight vectors received from clients, maybe some non linear aggregation formula could work better in certain contexts, and it is a good area to look into.</li>
+<li>The idea behind increasing parallelism by lowering the number of rounds of communication and increasing computation in between rounds locally by making the task at hand more precise (viz. by reducing batch size for gradient descent) is fairly intuitive, but is there a way to have clients with slower connections begin to upload their weight vectors for a certain (scheduled) round of communication prior to others with no such constraint? If so, how should rounds be scheduled?</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>Wei et al</strong>
@@ -220,6 +227,13 @@
 </li>
 <li>
 <p>Akin to central differential privacy, straightforward noise addition.</p>
+</li>
+<li><strong>Remarks:</strong>
+<ul>
+<li>This is a fairly straightforward method of adding Gaussian noise (and ergo endow approximate differential privacy) into the weight uploads. But are there better ways of doing the same? We briefly considered implementing something similar using the exponential mechanism, and given how versatile it is, it could perhaps capture the nuances of the local training better, especially if you consider that out-of-bound (w.r.t. the clipping threshold) weight vectors are simply scaled down w.r.t. the clipping threshold (for good reason), can this be made more dynamic and inclusive of the factors and nuances in each client's dataset/model? It is an interesting thought.</li>
+<li>We also noticed that the authors do not mention a norm per se in the paper for the weight vectors while defining their algorithm (though there are some obvious choices, this was a bit unsettling).</li>
+<li>The authors use large values of the privacy budget (given the number of clients/the massively distributed nature of the client pool, this seems fair); can this be reduced while not having a major increase in error? Or with the minimum possible increase in the number of required clients to counteract any increase in noise?</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -246,7 +260,7 @@
 <p><code>FedAvg</code> is used for the experiments to decrease the number of rounds of communication required to train a good model.</p>
 </li>
 <li>
-<p>Conclusion of the paper</p>
+<p>Conclusions of the paper</p>
 <ul>
 <li>
 <p>Random mask performs significantly better than low rank, as the size of the updates is reduced.</p>
@@ -263,6 +277,7 @@
 <li>
 <p>Introduced an important and practical tradeoff in the FL: one can select more clients in each round while having each of them communicate less, and obtain the same accuracy as using fewer clients, but having each of them communicate more.</p>
 </li>
+<li>Note (The random mask's indices/low rank's encoding matrix can be elegantly encoded in a random seed, we haven't implemented it that way per se, though the idea is the same, but that is a fairly elegant manner of going about it, not to mention the significant advantage of terms of just having to remember a seed and not an array of indices/a matrix.)</li>
 </ul>
 </li>
 </ul>
@@ -274,6 +289,12 @@
 <li>Selective mask: Instead of fully (uniformly) randomised selection of indices for a mask, choose the top <span class="math inline">\(k\)</span> indices with the most significant updates to the initial model for each client;</li>
 <li>Selective mask consistently outperformed random mask in terms of accuracy and rate of convergence;</li>
 <li>Dynamic sampling gave accuracy comparable to static sampling, but at a significant loss in communication cost.</li>
+<li><strong>Remarks:</strong>
+<ul>
+<li>We have a few bones to pick here: while these work extremely well all things considered, would not it be better if dynamic sampling chose to sample a larger number of clients in response to an increase in observed error after a particular vis-a-vis previous rounds to help decrease the error for subsequent rounds? This could be a neat feature.</li>
+<li>Selective sampling chooses a specified number of the most significant (by magnitude) updates, and it definitely seems to be working really well, but we are concerned if in the process, i.e. by disregarding the others, we might be losing some important nuance in the process (i.e. this reasoning seems to be kind of reductionist and black-and-white). So can we instead choose mostly from among the top updates, and reserve a small proportion for those not in that club, so to speak? And if so, will this approach yield any advantages? Might as well try that out.&nbsp;</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -284,7 +305,7 @@
 <div>
 <ul>
 <li>
-<p>For aggregation, we used <code>FedAvg</code> from for the most vanilla FL implementation, and then added to it as necessary for the implementation of more sophisticated FL techniques;</p>
+<p>For aggregation, we used <code>FedAvg </code>for the most vanilla FL implementation, and then added to it as necessary for the implementation of more sophisticated FL techniques;</p>
 </li>
 <li>
 <p>The Gaussian Mechanism to provide <span class="math inline">\((\varepsilon,\delta)\)</span>-differential privacy pre-upload from each device (Noising before Aggregation), as introduced by Wei et al.;</p>
@@ -299,7 +320,7 @@
 <p><em>Dynamic Sampling</em> of clients to successively reduce the proportion of clients involved in successive rounds of communication to further save on rounds of communication and computational resources (as proposed by Ji et al);</p>
 </li>
 <li>
-<p>Considering/considered using: <em>Selective Mask</em> from (especially when working with larger weight vectors/matrices).</p>
+<p>Considering/considered using: <em>Selective Mask</em>&nbsp;(especially when working with larger weight vectors/matrices).</p>
 </li>
 </ul>
 </div>
