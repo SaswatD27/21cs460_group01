@@ -263,4 +263,54 @@
 </ul>
 </li>
 </ol>
-</html>
+<h4>Techniques Used/Explored</h4>
+<ul>
+<li>
+<p>For aggregation, we used <code>FedAvg</code> from for the most vanilla FL implementation, and then added to it as necessary for the implementation of more sophisticated FL techniques;</p>
+</li>
+<li>
+<p>The Gaussian Mechanism to provide <span class="math inline">\((\varepsilon,\delta)\)</span>-differential privacy pre-upload from each device (Noising before Aggregation), as introduced by Wei et al.;</p>
+</li>
+<li>
+<p><em>Static Sampling</em> of clients for every round of training to reduce communication rounds per user;</p>
+</li>
+<li>
+<p><em>Random Mask</em> and <em>Probabilistic Quantisation</em> as described by Konečn&yacute; et al;</p>
+</li>
+<li>
+<p><em>Dynamic Sampling</em> of clients to successively reduce the proportion of clients involved in successive rounds of communication to further save on rounds of communication and computational resources (as proposed by Ji et al);</p>
+</li>
+<li>
+<p>Considering/considered using: <em>Selective Mask</em> from (especially when working with larger weight vectors/matrices).</p>
+</li>
+</ul>
+<h4>Experiments and Observations</h4>
+<p>We implemented <code>FedAvg</code> from scratch in Python, with a 0.25 static sampling rate, with anywhere between 3 to 5 (or more) rounds of calling for training from sampled (w.r.t. the uniform distribution) clients, with local training involving multiple linear regression implemented via Stochastic Gradient Descent on a synthetically generated dataset for about 500 clients, with static subsampling (contrast with dynamic subsampling).</p>
+<p>The generated datasets, generated around a pre-chosen/generated "true weights vector" (we chose the dimension of these weight vectors to be 7) (e.g. <span class="math inline">\([1, 2, 4, 3, 5, 6, 1.2]\)</span>), are mostly IID as we focused more on implementing a model atop that.</p>
+<p>As we are using regression here, we use, for a particular instance, average training/testing error per data point as a metric of a deployment&rsquo;s accuracy, and simply measure the time taken by running it on Google Colab and compare them as a rough measure of how quick each is, and implement centralised learning to serve as a baseline for our exploration of these FL paradigms.</p>
+<p>We then tried the above listed techniques, sometimes standalone or in conjunction with each other as follows.</p>
+<ol>
+<li><strong>Centralised Learning (As a Baseline)</strong><br />
+<p>For centralised learning, we simply gathered and flattened the list of all local datasets into a cumulative list of all datapoints, and ran SGD on it for 100 epochs.<br />Time Taken <span class="math inline">\(\approx 268-270\)</span> seconds.<br />Average Training Error for Centralised Learning on SGD <span class="math inline">\(\approx 3.2472\times 10^{-29}\).</span><br />Average Testing Error for Centralised Learning on SGD <span class="math inline">\(\approx 3.2154 \times 10^{-29}\).</span></p>
+</li>
+<li><strong>Vanilla <code>FederatedAveraging/FedAvg</code></strong>
+<p>We then ran vanilla <code>FedAvg</code> with static sampling of clients at a rate of 0.25 of the client population per round of training on the above mentioned local datasets, with 100 epochs per round of local training. Number of rounds, <span class="math inline">\(T=5\)</span>.<br />Time taken <span class="math inline">\(\approx 362\)</span> seconds.<br />Average Training Error for Vanilla FedAvg on SGD <span class="math inline">\(\approx 2.5331\times 10^{-18}\)</span>.<br />Average Testing Error for Vanilla FedAvg on SGD <span class="math inline">\(\approx 2.6021\times 10^{-18}\)</span>.</p>
+</li>
+<li><strong>Noising before Aggregation (From Wei et al)</strong>
+<p>Adds Gaussian noise to appropriately clipped weights from each user. Motivation: To stop attacks involving reconstruction of raw data/private information from na&iuml;ve uploading of weight vectors/matrices. Optionally adds downlink DP, but we felt it was unnecessary.</p>
+<p>We an <code>FedAvg</code> with static sampling of clients at a rate of 0.25 per round of training, clipping the locally generated weight vectors to gain bounds (defining upper bound of the norm of a weight vector as <span class="math inline">\(C =1.01\times\max(w_i)\)</span>, where <span class="math inline">\(w -\)</span> weight vector, for the sake of computing the sensitivity of queries for the weight vectors, then adding Gaussian noise calibrated to <span class="math inline">\(C,\varepsilon,\delta\)</span> to each weight (<span class="math inline">\(\varepsilon=70,\delta=0.1\)</span>) with 100 epochs per round of local training. Number of rounds, <span class="math inline">\(T=5\)</span>.<br />Time taken <span class="math inline">\(\approx 349\)</span> seconds (which makes it about as fast as vanilla <code>FedAvg</code>).<br />Average Training Error for NbA FedAvg on SGD <span class="math inline">\(\approx 7.2562\times 10^{-7}\)</span>.<br />Average Testing Error for NbA FedAvg on SGD <span class="math inline">\(\approx 6.6740\times10^{-7}\)</span>.</p>
+</li>
+<li><strong>NbAFL with Random Mask</strong>
+<p>We use the same setup as for the above NbAFL implementation, but with a layer of uniformly chosen random masks, excluding <span class="math inline">\(\approx s=0.25\)</span> of the weights, prior to uploading by a client. Seems to consistently outperform base NbAFL in terms of accuracy, also reduces communication overhead!<br />Time taken <span class="math inline">\(\approx 356\)</span> seconds.<br />Average Training Error <span class="math inline">\(\approx 0.006601\).</span><br />Average Testing Error <span class="math inline">\(\approx 0.007577\).</span></p>
+</li>
+<li><strong>NbAFL with Probabilistic Binarisation</strong>
+<p>We again use the same setup and parameters as our vanilla NbAFL implementation, but with probabilistic binarisation implemented atop it.<br />Time taken <span class="math inline">\(\approx 356\)</span> seconds.<br />Average Training Error <span class="math inline">\(\approx 0.021241\)</span>.<br />Average Testing Error <span class="math inline">\(\approx 0.019635\)</span></p>
+</li>
+<li><strong>NbAFL with Dynamic Sampling</strong>
+<p>We again adopt the same setup as that for our vanilla NbAFL implementation, but instead of static sampling of clients, we sample clients with an initial rate of <span class="math inline">\(0.25\)</span>, which decays by a factor of <span class="math inline">\(\frac 1{\exp(\beta t)}\)</span>, where <span class="math inline">\(t =\)</span> number of rounds elapsed. We take <span class="math inline">\(\beta=0.05\)</span>.<br />
+Time taken <span class="math inline">\(\approx 334\)</span> seconds.<br />
+(Saves on time and no. of communication rounds!)<br />
+Average Training Error <span class="math inline">\(\approx 0.010684\)</span>.<br />
+Average Testing Error <span class="math inline">\(\approx  0.010908\)</span>.</p>
+</li>
+</ol>
