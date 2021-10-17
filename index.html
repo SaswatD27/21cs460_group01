@@ -92,6 +92,10 @@
     </style>
 </head>
 <div>
+<div class="container">&nbsp;</div>
+</div>
+<div>
+<div>
 <div class="container"><header>
 <h1 style="text-align: center;">Course Project, CS460, Fall 2021-22</h1>
 <h2 style="text-align: center;">On Federated Learning and Possible Improvements</h2>
@@ -158,15 +162,25 @@
 <h4>Project Presentation Slides</h4>
 <embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/CS460-ML-Project-2021/raw/main/CS460%20-%20Project%20Proposal.pdf" width="500" height="375"></embed><hr /></div>
 </div>
+</div>
+<div>
 <h3>2. Project Midway</h3>
+</div>
+<div>
 <h4>Literature Review</h4>
+</div>
+<div>
 <p>Some of the most important papers we referred to are listed below.</p>
+</div>
+<div>
 <ul>
 <li>McMahan, H. Brendan et al. &ldquo;Communication-Efficient Learning of Deep Networks from Decentralized Data.&rdquo;&nbsp;<em>AISTATS</em>&nbsp;(2017).</li>
 <li>Konecn&yacute;, Jakub et al. &ldquo;Federated Learning: Strategies for Improving Communication Efficiency.&rdquo;&nbsp;<em>ArXiv</em> abs/1610.05492 (2016).</li>
 <li>Wei, Kang et al. &ldquo;Federated Learning With Differential Privacy: Algorithms and Performance Analysis.&rdquo;&nbsp;<em>IEEE Transactions on Information Forensics and Security</em>&nbsp;15 (2020): 3454-3469.</li>
 <li>Ji, Shaoxiong et al. &ldquo;Dynamic Sampling and Selective Masking for Communication-Efficient Federated Learning.&rdquo;&nbsp;<em>ArXiv</em> abs/2003.09603 (2020).</li>
 </ul>
+</div>
+<div>
 <ol>
 <li><strong>McMahan et al</strong>
 <ul>
@@ -263,7 +277,11 @@
 </ul>
 </li>
 </ol>
+</div>
+<div>
 <h4>Techniques Used/Explored</h4>
+</div>
+<div>
 <ul>
 <li>
 <p>For aggregation, we used <code>FedAvg</code> from for the most vanilla FL implementation, and then added to it as necessary for the implementation of more sophisticated FL techniques;</p>
@@ -284,11 +302,23 @@
 <p>Considering/considered using: <em>Selective Mask</em> from (especially when working with larger weight vectors/matrices).</p>
 </li>
 </ul>
+</div>
+<div>
 <h4>Experiments and Observations</h4>
+</div>
+<div>
 <p>We implemented <code>FedAvg</code> from scratch in Python, with a 0.25 static sampling rate, with anywhere between 3 to 5 (or more) rounds of calling for training from sampled (w.r.t. the uniform distribution) clients, with local training involving multiple linear regression implemented via Stochastic Gradient Descent on a synthetically generated dataset for about 500 clients, with static subsampling (contrast with dynamic subsampling).</p>
+</div>
+<div>
 <p>The generated datasets, generated around a pre-chosen/generated "true weights vector" (we chose the dimension of these weight vectors to be 7) (e.g. <span class="math inline">\([1, 2, 4, 3, 5, 6, 1.2]\)</span>), are mostly IID as we focused more on implementing a model atop that.</p>
+</div>
+<div>
 <p>As we are using regression here, we use, for a particular instance, average training/testing error per data point as a metric of a deployment&rsquo;s accuracy, and simply measure the time taken by running it on Google Colab and compare them as a rough measure of how quick each is, and implement centralised learning to serve as a baseline for our exploration of these FL paradigms.</p>
+</div>
+<div>
 <p>We then tried the above listed techniques, sometimes standalone or in conjunction with each other as follows.</p>
+</div>
+<div>
 <ol>
 <li><strong>Centralised Learning (As a Baseline)</strong><br />
 <p>For centralised learning, we simply gathered and flattened the list of all local datasets into a cumulative list of all datapoints, and ran SGD on it for 100 epochs.<br />Time Taken <span class="math inline">\(\approx 268-270\)</span> seconds.<br />Average Training Error for Centralised Learning on SGD <span class="math inline">\(\approx 3.2472\times 10^{-29}\).</span><br />Average Testing Error for Centralised Learning on SGD <span class="math inline">\(\approx 3.2154 \times 10^{-29}\).</span></p>
@@ -310,98 +340,110 @@
 <p>We again adopt the same setup as that for our vanilla NbAFL implementation, but instead of static sampling of clients, we sample clients with an initial rate of <span class="math inline">\(0.25\)</span>, which decays by a factor of <span class="math inline">\(\frac 1{\exp(\beta t)}\)</span>, where <span class="math inline">\(t =\)</span> number of rounds elapsed. We take <span class="math inline">\(\beta=0.05\)</span>.<br />Time taken <span class="math inline">\(\approx 334\)</span> seconds.<br />(Saves on time and no. of communication rounds!)<br />Average Training Error <span class="math inline">\(\approx 0.010684\)</span>.<br />Average Testing Error <span class="math inline">\(\approx 0.010908\)</span>.</p>
 </li>
 </ol>
+</div>
+<div>
 <p>The following table summarises the parameters used for and the results of our experiments (to be fair, we had to fiddle with a fair of different values for parameters and variations in algorithms to fix these for now)</p>
-<table>
+</div>
+<div>
+<div id="tab:my-table">
+<table style="margin-left: auto; margin-right: auto; height: 353px;"><caption>Local Learning Rate, <span class="math inline">\(\alpha = 0.01\)</span>; No. of local iterations for SGD <span class="math inline">\(=100\)</span>, No. of clients <span class="math inline">\(=500\)</span></caption>
 <thead>
-<tr>
-<th>Name of Model</th>
-<th>T</th>
-<th>Client Sampling Rate</th>
-<th>$\varepsilon$</th>
-<th>$delta$</th>
-<th>Training Error</th>
-<th>Testing Error</th>
-<th>Time Taken (sec)</th>
-<th>Other Parameters</th>
+<tr class="header" style="height: 53px;">
+<th style="text-align: left; height: 53px; width: 78.6806px;">Name of Model</th>
+<th style="text-align: left; height: 53px; width: 9.55556px;">T</th>
+<th style="text-align: left; height: 53px; width: 73.2361px;">Client Sampling Rate</th>
+<th style="text-align: left; height: 53px; width: 116.486px;"><span class="math inline">\(\varepsilon\)</span></th>
+<th style="text-align: left; height: 53px; width: 64.4722px;"><span class="math inline">\(delta\)</span></th>
+<th style="text-align: left; height: 53px; width: 100.931px;">Training Error</th>
+<th style="text-align: left; height: 53px; width: 175.931px;">Testing Error</th>
+<th style="text-align: left; height: 53px; width: 47.5694px;">Time Taken (sec)</th>
+<th style="text-align: left; height: 53px; width: 99.6806px;">Other Parameters</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Centralised SGD</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>$3.2472\times 10^{-29}$</td>
-<td>$3.2154 \times 10^{-29}$</td>
-<td>268 - 270</td>
-<td>-</td>
+<tr class="odd" style="height: 53px;">
+<td style="text-align: left; height: 53px; width: 78.6806px;">Centralised SGD</td>
+<td style="text-align: center; height: 53px; width: 9.55556px;">-</td>
+<td style="text-align: center; height: 53px; width: 73.2361px;">-</td>
+<td style="text-align: center; height: 53px; width: 116.486px;">-</td>
+<td style="text-align: center; height: 53px; width: 64.4722px;">-</td>
+<td style="text-align: center; height: 53px; width: 100.931px;"><span class="math inline">\(3.2472\times 10^{-29}\)</span></td>
+<td style="text-align: center; height: 53px; width: 175.931px;"><span class="math inline">\(3.2154 \times 10^{-29}\)</span></td>
+<td style="text-align: center; height: 53px; width: 47.5694px;">268 - 270</td>
+<td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
 </tr>
-<tr>
-<td>Vanilla \texttt{FedAvg}</td>
-<td>5</td>
-<td>0.25</td>
-<td>-</td>
-<td>-</td>
-<td>$2.5331\times 10^{-18}$</td>
-<td>$2.6021\times 10^{-18}$</td>
-<td>362</td>
-<td>-</td>
+<tr class="even" style="height: 53px;">
+<td style="text-align: left; height: 53px; width: 78.6806px;">Vanilla <code>FedAvg</code></td>
+<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
+<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
+<td style="text-align: center; height: 53px; width: 116.486px;">-</td>
+<td style="text-align: center; height: 53px; width: 64.4722px;">-</td>
+<td style="text-align: center; height: 53px; width: 100.931px;"><span class="math inline">\(2.5331\times 10^{-18}\)</span></td>
+<td style="text-align: center; height: 53px; width: 175.931px;"><span class="math inline">\(2.6021\times 10^{-18}\)</span></td>
+<td style="text-align: center; height: 53px; width: 47.5694px;">362</td>
+<td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
 </tr>
-<tr>
-<td>NbAFL</td>
-<td>5</td>
-<td>0.25</td>
-<td>70</td>
-<td>0.01</td>
-<td>$7.2562\times 10^{-7}$</td>
-<td>$6.6740\times10^{-7}$</td>
-<td>349</td>
-<td>-</td>
+<tr class="odd" style="height: 53px;">
+<td style="text-align: left; height: 53px; width: 78.6806px;">NbAFL</td>
+<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
+<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
+<td style="text-align: center; height: 53px; width: 116.486px;">70</td>
+<td style="text-align: center; height: 53px; width: 64.4722px;">0.01</td>
+<td style="text-align: center; height: 53px; width: 100.931px;"><span class="math inline">\(7.2562\times 10^{-7}\)</span></td>
+<td style="text-align: center; height: 53px; width: 175.931px;"><span class="math inline">\(6.6740\times10^{-7}\)</span></td>
+<td style="text-align: center; height: 53px; width: 47.5694px;">349</td>
+<td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
 </tr>
-<tr>
-<td>NbAFL w/ Random Mask</td>
-<td>5</td>
-<td>0.25</td>
-<td>70</td>
-<td>0.01</td>
-<td>0.006601</td>
-<td>0.007577</td>
-<td>356</td>
-<td>$s=0.25$</td>
+<tr class="even" style="height: 53px;">
+<td style="text-align: center; height: 53px; width: 78.6806px;">NbAFL w/ Random Mask</td>
+<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
+<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
+<td style="text-align: center; height: 53px; width: 116.486px;">70</td>
+<td style="text-align: center; height: 53px; width: 64.4722px;">0.01</td>
+<td style="text-align: center; height: 53px; width: 100.931px;">0.006601</td>
+<td style="text-align: center; height: 53px; width: 175.931px;">0.007577</td>
+<td style="text-align: center; height: 53px; width: 47.5694px;">356</td>
+<td style="text-align: center; height: 53px; width: 99.6806px;"><span class="math inline">\(s=0.25\)</span></td>
 </tr>
-<tr>
-<td>NbAFL w/ Prob. Bin.</td>
-<td>5</td>
-<td>0.25</td>
-<td>70</td>
-<td>0.01</td>
-<td>0.021241</td>
-<td>0.019635</td>
-<td>356</td>
-<td>-</td>
+<tr class="odd" style="height: 35px;">
+<td style="text-align: center; height: 35px; width: 78.6806px;">NbAFL w/ Prob. Bin.</td>
+<td style="text-align: center; height: 35px; width: 9.55556px;">5</td>
+<td style="text-align: center; height: 35px; width: 73.2361px;">0.25</td>
+<td style="text-align: center; height: 35px; width: 116.486px;">70</td>
+<td style="text-align: center; height: 35px; width: 64.4722px;">0.01</td>
+<td style="text-align: center; height: 35px; width: 100.931px;">0.021241</td>
+<td style="text-align: center; height: 35px; width: 175.931px;">0.019635</td>
+<td style="text-align: center; height: 35px; width: 47.5694px;">356</td>
+<td style="text-align: center; height: 35px; width: 99.6806px;">-</td>
 </tr>
-<tr>
-<td>NbAFL w/ Dyn. Samp.</td>
-<td>5</td>
-<td>0.25</td>
-<td>70</td>
-<td>0.01</td>
-<td>0.010684</td>
-<td>0.010908</td>
-<td>334</td>
-<td>$\beta=0.05$</td>
+<tr class="even" style="height: 53px;">
+<td style="text-align: center; height: 53px; width: 78.6806px;">NbAFL w/ Dyn. Samp.</td>
+<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
+<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
+<td style="text-align: center; height: 53px; width: 116.486px;">70</td>
+<td style="text-align: center; height: 53px; width: 64.4722px;">0.01</td>
+<td style="text-align: center; height: 53px; width: 100.931px;">0.010684</td>
+<td style="text-align: center; height: 53px; width: 175.931px;">0.010908</td>
+<td style="height: 53px; width: 47.5694px; text-align: center;">334</td>
+<td style="text-align: center; height: 53px; width: 99.6806px;"><span class="math inline">\(\beta=0.05\)</span></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div>
 <p>Note that the errors happen to be quite small compared to the weight vectors' magnitude, with a maximum being in the neighbourhood of 1% error to "true" weight vector (norm/coordinates) ratio, roughly.</p>
+</div>
+<div>
 <h4>Suggested Tweaks and Possible Improvements to Try Out to Extend the Baselines</h4>
+</div>
+<div>
 <ul>
 <li>
 <p>Silo-ing users with similar characteristics and running a separate FL paradigm within these silos;</p>
 </li>
 <li>
-<p>Applications to dapps on P2P networks;</p>
+<p>Applications to dapps (decentralised applications) on P2P networks (given that uploaded weight vectors are more or less public and aggregation does not take much time);</p>
 </li>
 <li>
 <p>Trying other mechanisms (viz. exponential) out on NbAFL for possible improvement, or explore locally differentially private techniques instead (some baseline work on this exists);</p>
@@ -418,12 +460,27 @@
 <li>
 <p>Looking at tweaks to <code>FedAvg</code> in certain contexts;</p>
 </li>
+<li>Think of how to further unlink clients from their uploaded weights (perhaps mixes will help);</li>
 <li>
 <p>Anything else that strikes our minds.</p>
 </li>
 </ul>
+</div>
+<div>
 <p>We may tentatively try implementing the above FL models for more complex local training algorithms (viz. ConvNets using FEMNIST), but this is secondary/optional.</p>
+</div>
 <hr />
+<p>Here is the <a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_01.ipynb">link</a> to the .ipynb file containing the latest version of our code (as of 17 Oct '21).</p>
+<div><hr /></div>
+<div>
 <h4>Midway Presentation Slides</h4>
+(Kindly Exclude The Title and Bibliography Slides from the Slide Count)</div>
+<div>
 <p><embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/21cs460_group01/raw/main/CS460_Team_01_Midway_Presentation.pdf" width="500" height="375"></embed></p>
-<hr />
+</div>
+<div><hr /></div>
+<div>&nbsp;</div>
+<div>
+<p>&nbsp;</p>
+</div>
+<div><hr /></div>
