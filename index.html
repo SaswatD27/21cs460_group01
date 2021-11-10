@@ -92,8 +92,11 @@
     </style>
 </head>
 <div>
+<div>
 <div class="container">&nbsp;</div>
 </div>
+</div>
+<div>
 <div>
 <div>
 <div class="container"><header>
@@ -163,15 +166,23 @@
 <embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/CS460-ML-Project-2021/raw/main/CS460%20-%20Project%20Proposal.pdf" width="500" height="375"></embed><hr /></div>
 </div>
 </div>
+</div>
+<div>
 <div>
 <h3>2. Project Midway</h3>
 </div>
+</div>
+<div>
 <div>
 <h4>Literature Review</h4>
 </div>
+</div>
+<div>
 <div>
 <p>Some of the most important papers we referred to are listed below.</p>
 </div>
+</div>
+<div>
 <div>
 <ul>
 <li>McMahan, H. Brendan et al. &ldquo;Communication-Efficient Learning of Deep Networks from Decentralized Data.&rdquo;&nbsp;<em>AISTATS</em>&nbsp;(2017).</li>
@@ -180,6 +191,8 @@
 <li>Ji, Shaoxiong et al. &ldquo;Dynamic Sampling and Selective Masking for Communication-Efficient Federated Learning.&rdquo;&nbsp;<em>ArXiv</em> abs/2003.09603 (2020).</li>
 </ul>
 </div>
+</div>
+<div>
 <div>
 <ol>
 <li><strong>McMahan et al</strong>
@@ -299,9 +312,13 @@
 </li>
 </ol>
 </div>
+</div>
+<div>
 <div>
 <h4>Techniques Used/Explored</h4>
 </div>
+</div>
+<div>
 <div>
 <ul>
 <li>
@@ -324,21 +341,33 @@
 </li>
 </ul>
 </div>
+</div>
+<div>
 <div>
 <h4>Experiments and Observations</h4>
 </div>
+</div>
+<div>
 <div>
 <p>We implemented <code>FedAvg</code> from scratch in Python, with a 0.25 static sampling rate, with anywhere between 3 to 5 (or more) rounds of calling for training from sampled (w.r.t. the uniform distribution) clients, with local training involving multiple linear regression implemented via Stochastic Gradient Descent on a synthetically generated dataset for about 500 clients, with static subsampling (contrast with dynamic subsampling).</p>
 </div>
+</div>
+<div>
 <div>
 <p>The generated datasets, generated around a pre-chosen/generated "true weights vector" (we chose the dimension of these weight vectors to be 7) (e.g. <span class="math inline">\([1, 2, 4, 3, 5, 6, 1.2]\)</span>), are mostly IID as we focused more on implementing a model atop that.</p>
 </div>
+</div>
+<div>
 <div>
 <p>As we are using regression here, we use, for a particular instance, average training/testing error per data point as a metric of a deployment&rsquo;s accuracy, and simply measure the time taken by running it on Google Colab and compare them as a rough measure of how quick each is, and implement centralised learning to serve as a baseline for our exploration of these FL paradigms.</p>
 </div>
+</div>
+<div>
 <div>
 <p>We then tried the above listed techniques, sometimes standalone or in conjunction with each other as follows.</p>
 </div>
+</div>
+<div>
 <div>
 <ol>
 <li><strong>Centralised Learning (As a Baseline)</strong><br />
@@ -362,9 +391,13 @@
 </li>
 </ol>
 </div>
+</div>
+<div>
 <div>
 <p>The following table summarises the parameters used for and the results of our experiments (to be fair, we had to fiddle with a fair of different values for parameters and variations in algorithms to fix these for now)</p>
 </div>
+</div>
+<div>
 <div>
 <div id="tab:my-table">
 <table style="margin-left: auto; margin-right: auto; height: 353px;"><caption>Local Learning Rate, <span class="math inline">\(\alpha = 0.01\)</span>; No. of local iterations for SGD <span class="math inline">\(=100\)</span>, No. of clients <span class="math inline">\(=500\)</span></caption>
@@ -452,12 +485,18 @@
 </table>
 </div>
 </div>
+</div>
+<div>
 <div>
 <p>Note that the errors happen to be quite small compared to the weight vectors' magnitude, with a maximum being in the neighbourhood of 1% error to "true" weight vector (norm/coordinates) ratio, roughly.</p>
 </div>
+</div>
+<div>
 <div>
 <h4>Suggested Tweaks and Possible Improvements to Try Out to Extend the Baselines</h4>
 </div>
+</div>
+<div>
 <div>
 <ul>
 <li>
@@ -487,21 +526,124 @@
 </li>
 </ul>
 </div>
+</div>
+<div>
 <div>
 <p>We may tentatively try implementing the above FL models for more complex local training algorithms (viz. ConvNets using FEMNIST), but this is secondary/optional.</p>
 </div>
-<hr />
-<p>Here is the <a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_01.ipynb">link</a> to the .ipynb file containing the latest version of our code (as of 17 Oct '21).</p>
+</div>
 <div><hr /></div>
+<div>
+<p>Here is the <a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_01.ipynb">link</a> to the .ipynb file containing the latest version of our code (as of 17 Oct '21).</p>
+</div>
+<div>
+<div><hr /></div>
+</div>
+<div>
 <div>
 <h4>Midway Presentation Slides</h4>
 (Kindly Exclude The Title and Bibliography Slides from the Slide Count)</div>
+</div>
+<div>
 <div>
 <p><embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/21cs460_group01/raw/main/CS460_Team_01_Midway_Presentation.pdf" width="500" height="375"></embed></p>
 </div>
-<div><hr /></div>
-<div>&nbsp;</div>
+</div>
 <div>
+<div><hr /></div>
+</div>
+<div>
+<div>&nbsp;</div>
+</div>
+<div>
+<div><hr />
+<h3>3. Final Project Presentation/Extension of Baselines</h3>
 <p>&nbsp;</p>
 </div>
-<div><hr /></div>
+</div>
+<ul>Since the midway, we did a number of things, the most notable of which are as follows.
+<li>
+<p>Created a federated learning code framework from scratch to transfer our work from one that employs local learning via linear regression on a randomly generated dataset to one that employs DNNs (implemented on Tensorflow) to classify digits in MNIST (randomly shuffled and distributed across clients).</p>
+</li>
+<li>
+<p>Tried out various approaches and tweaks to some existing paradigms/models.</p>
+</li>
+<li>
+<p>Designed "<strong>Adaptive Sampling</strong>" an improvement to Dynamic Sampling, with penalisation of the sampling decay coefficient for increase in errors.</p>
+</li>
+<li>
+<p>Designed a <strong>fully decentralised P2P approach</strong> to FL (in contrast to the recent P2P models proposed that involve a level of temporary centralisation).</p>
+</li>
+<li>
+<p>Designed an approach involving <strong>clustering (of clients) in silos</strong> and simultaneously training a <em>silo-specific model</em> and a <em>general model</em> via FL.</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h4>Specifications of our new framework</h4>
+<p><strong>Dataset:</strong></p>
+<dl>
+<dd>
+<p><strong>MNIST</strong> (training data shuffled and distributed unequally at random among 100 clients)</p>
+</dd>
+<dt><strong>Local Training:</strong></dt>
+<dd>
+<p>Via a <strong>DNN</strong>, defined and compiled with Tensorflow.</p>
+<ul>
+<li>
+<p><strong>Input Layer</strong>: Flatten Layer.</p>
+</li>
+<li>
+<p><strong>Hidden Layers</strong>: 32 units and 512 units* (later ditched for speed) with ReLU activation.</p>
+</li>
+<li>
+<p><strong>Dropout Layer*</strong> (rate = 0.2): Before the <span class="math inline">\(2^\text{nd}\)</span> Hidden Layer (later ditched)</p>
+</li>
+<li>
+<p><strong>Output Layer:</strong> 10 units with Softmax activation.</p>
+</li>
+<li>
+<p><strong>Batch Normalisation:</strong> Before every hidden and output layer</p>
+</li>
+</ul>
+</dd>
+</dl>
+<p>In a nutshell, due to time and computing power constraints, we ended up using a DNN with a flatten layer, a hidden layer with 32 units with ReLU activation, followed by an output layer with 10 units with softmax activation, not to mention the batch normalisation layers before the hidden and output layer. As we shall soon see, we found that this was sufficient to give a high degree of accuracy on MNIST.</p>
+<dl>
+<dt>Federated Averaging was implemented similarly as for our older framework, as per the original paper on Federated Averaging by McMahan et al.</dt>
+</dl>
+<p>A salient feature of our framework is that it is flexible enough to be used for any Tensorflow based neural network (at least ones that are created using keras.sequential) and for any dataset that is fed into such an NN.</p>
+<h4>Baselines</h4>
+<p><strong>N.B.</strong> For testing, we initialised the same server model (i.e. we started training with a weight vector that was common for every run, for example, a weight vector with all 0s for each "coordinate" in the vector) for each run of each model, for a fair comparison.</p>
+<p>&nbsp;</p>
+<p>Given the conception of the new code framework with the DNN on MNIST, we re-ran some of the relevant baselines using it, and we got the following results. Please note that the provided figures/graphs are representative, as in they are just a few from the many runs of each model/algorithm.</p>
+<p><strong>Centralised Learning</strong><br />Which simply is training the DNN using all of the MNIST training data in one place, and precisely what any federated learning algorithm should aspire to match, or at least approach, in terms of accuracy.<br /><strong>Test Accuracy:</strong> 96.52% (Pretty nice!)</p>
+<p><img src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/MNIST%20Central%201.png" alt="image" /></p>
+<p><strong>Vanilla FedAveraging</strong></p>
+<p>Which, as mentioned earlier, is simply an implementation of McMahan et al's model with aggregation via FederatedAvg. Note that here in each round of communication, a fixed proportion of the total number of clients are asked for local updates, which in the language of client sampling is called static sampling.<br /><strong>Number of Communication Rounds:</strong> 50<br /><strong>Test Accuracy:</strong> 94.21% (Not bad at all!)</p>
+<p><img src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/MNIST%2050%20FedAvg.png" alt="image" /></p>
+<p><strong>FedAveraging with Dynamic Sampling</strong></p>
+<p>For a proper recaptitulation of what Dynamic Sampling does, refer to our prior discussion regarding Ji et al in the Midway section. But in a nutshell, what it does is reduce the number of clients sampled per round w.r.t. a decay coefficient <span class="math inline">\(\beta\)</span> and the initial client sampling rate (i.e. by multiplying <span class="math inline">\(\frac 1{\exp(-\beta t)}\)</span> to the initial sampling rate).</p>
+<p><strong>Decay Coeff. <span class="math inline">\(\beta\)</span>:</strong> 0.05<br /><strong>Initial Sampling Rate :</strong> 0.25<br /><strong>Test Accuracy:</strong> 93.7%<br /><strong>Number of Rounds:</strong> 50</p>
+<p><img src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/MNIST%20Dyn%201%2020.png" alt="image" /></p>
+<p>Note that dynamic sampling decreases the number of clients per round independent of the change of accuracy per round.<br />The problem? This can slow down convergence and error rectification, or even occasionally and briefly lead to consecutive increases in error, because aggregation of several client weights leads to a good aggregate weights estimate, but instead the number of clients is continually decreasing here with the naive approach that decreasing the number of clients per round would decrease volume of communication. Okay, that is true, but especially in a short term manner. In the long term, slow error rectification will lead to the model requiring larger number of rounds of communication, which incurs both a time cost and communication cost in that way. But we can see that the thinking behind this paradigm is not without merit, we got a really good accuracy for substantially less clients' involvement vis-a-vis the vanilla case. But can we couple the reduction of the number of clients with faster convergence in a way that we are fine having the initial decay coefficient (which is positively correlated to how fast the decay occurs) as long as the error does not increase beyond a previously attained error value, at which point we would want to slow down the decay and make sure to involve more clients than in the last round to mitigate the amount of error and bring the amount of accuracy eventually to the highest previously attained accuracy beyond which it fell off. This is precisely the motivation behind us introducing <strong>adaptive sampling</strong>.</p>
+<p>More clients involved<span class="math inline">\(\implies\)</span>Better averaging<span class="math inline">\(\implies\)</span>Less error.</p>
+<p><br /><strong>Adaptive sampling<br /></strong>That is, we keep penalising decay coefficient for fall in accuracy, while retaining the previous index, so as to increase the number of clients for the next round and slow the decay in the sampling rate down, and restore the decay coefficient when accuracy reaches the previous high.</p>
+<p>The pseudocode for adaptive sampling is as follows.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/Adaptive%20Sampling%20Algo.jpg" alt="image" width="540" height="628" /></p>
+<p>&nbsp;</p>
+<p><strong>Note :</strong> <span class="math inline">\(n_i\)</span> is the number of datapoints possessed by the client corresponding to <span class="math inline">\(\Omega_t^i\)</span>, and <span class="math inline">\(n\)</span> is the total of all <span class="math inline">\(n_i\)</span>&rsquo;s for each <span class="math inline">\(\Omega_t^i\in L\)</span>.</p>
+<p>Also note that <span class="math inline">\((\gamma)\) is just a parameter we introduced in case we needed to tune the penalisation of the decay coefficient, and we kept it equal to 1 to start off with, and as it turned out, that worked just fine, so we kept it at 1.</span></p>
+<p>We again ran several rounds of experiments with for adaptive sampling and a representative results, with similar parameters as for the previous representative run for dynamic sampling, are as follows:</p>
+<p><strong>Initial Decay Coeff. <span class="math inline">\(\beta\)</span>:</strong> 0.05<br /><strong>Initial Sampling Rate :</strong> 0.25<br /><strong>Gamma <span class="math inline">\((\gamma)\)</span> :</strong> 1<br /><strong>Test Accuracy:</strong> 94.16%<br /><strong>Rounds of Communication:</strong> 20</p>
+<p>(It would have risen as accuracy fell in the last step; it had an accuracy of 94.59% after round 19, but since we only specified 20 rounds of communication, it stalled at that.)</p>
+<p><img style="float: left;" src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/MNIST%20Adap%201%2020.png" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>What immediately jumps out at us upon viewing this graph is that 1. it seems to lead to smoother convergence, sans any of the jaggedness as for dynamic sampling; and 2. it leads to convergence within lesser rounds of communication, albeit with marginally more clients per round on average being involved than dynamic sampling (owing to the penalisation of the decay coefficient at times along with stalling of the counter variable whenever accuracy drops), and knowing/assuming that the server calls on clients for communication round wise and clients in each round upload their local weights nearly simultaneously, lesser number of rounds implies lesser time taken for this entire exercise of federated learning.</p>
