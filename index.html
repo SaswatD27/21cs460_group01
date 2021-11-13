@@ -501,86 +501,86 @@
 <div>
 <div>
 <div id="tab:my-table">
-<table style="margin-left: auto; margin-right: auto; height: 353px;"><caption>Local Learning Rate,  \(\alpha = 0.01\) ; No. of local iterations for SGD  \(=100\) , No. of clients  \(=500\) </caption>
+<table style="margin-left: auto; margin-right: auto; height: 353px;"><caption>Local Learning Rate, \(\alpha = 0.01\) ; No. of local iterations for SGD \(=100\) , No. of clients \(=500\)</caption>
 <thead>
 <tr class="header" style="height: 53px;">
-<th style="text-align: left; height: 53px; width: 78.6806px;">Name of Model</th>
-<th style="text-align: left; height: 53px; width: 9.55556px;">T</th>
-<th style="text-align: left; height: 53px; width: 73.2361px;">Client Sampling Rate</th>
-<th style="text-align: left; height: 53px; width: 116.486px;"> \(\varepsilon\) </th>
-<th style="text-align: left; height: 53px; width: 64.4722px;"> \(\delta\) </th>
-<th style="text-align: left; height: 53px; width: 100.931px;">Training Error</th>
-<th style="text-align: left; height: 53px; width: 175.931px;">Testing Error</th>
-<th style="text-align: left; height: 53px; width: 47.5694px;">Time Taken (sec)</th>
-<th style="text-align: left; height: 53px; width: 99.6806px;">Other Parameters</th>
+<th style="height: 53px; width: 78.6806px;">Name of Model</th>
+<th style="height: 53px; width: 9.55556px;">T</th>
+<th style="height: 53px; width: 73.2361px;">Client Sampling Rate</th>
+<th style="height: 53px; width: 116.486px;">\(\varepsilon\)</th>
+<th style="height: 53px; width: 74.125px;">\(\delta\)</th>
+<th style="height: 53px; width: 100.931px;">Training Error</th>
+<th style="height: 53px; width: 175.931px;">Testing Error</th>
+<th style="height: 53px; width: 47.5694px;">Time Taken (sec)</th>
+<th style="height: 53px; width: 99.6806px;">Other Parameters</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd" style="height: 53px;">
-<td style="text-align: left; height: 53px; width: 78.6806px;">Centralised SGD</td>
-<td style="text-align: center; height: 53px; width: 9.55556px;">-</td>
-<td style="text-align: center; height: 53px; width: 73.2361px;">-</td>
-<td style="text-align: center; height: 53px; width: 116.486px;">-</td>
-<td style="text-align: center; height: 53px; width: 64.4722px;">-</td>
-<td style="text-align: center; height: 53px; width: 100.931px;"> \(3.2472\times 10^{-29}\) </td>
-<td style="text-align: center; height: 53px; width: 175.931px;"> \(3.2154 \times 10^{-29}\) </td>
-<td style="text-align: center; height: 53px; width: 47.5694px;">268 - 270</td>
-<td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
+<td style="height: 53px; width: 78.6806px;">Centralised SGD</td>
+<td style="height: 53px; width: 9.55556px;">-</td>
+<td style="height: 53px; width: 73.2361px;">-</td>
+<td style="height: 53px; width: 116.486px;">-</td>
+<td style="height: 53px; width: 74.125px;">-</td>
+<td style="height: 53px; width: 100.931px;">\(3.2472\times 10^{-29}\)</td>
+<td style="height: 53px; width: 175.931px;">\(3.2154 \times 10^{-29}\)</td>
+<td style="height: 53px; width: 47.5694px;">268 - 270</td>
+<td style="height: 53px; width: 99.6806px;">-</td>
 </tr>
 <tr class="even" style="height: 53px;">
-<td style="text-align: left; height: 53px; width: 78.6806px;">Vanilla <code>FedAvg</code></td>
-<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
-<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
-<td style="text-align: center; height: 53px; width: 116.486px;">-</td>
-<td style="text-align: center; height: 53px; width: 64.4722px;">-</td>
-<td style="text-align: center; height: 53px; width: 100.931px;"> \(2.5331\times 10^{-18}\) </td>
-<td style="text-align: center; height: 53px; width: 175.931px;"> \(2.6021\times 10^{-18}\) </td>
-<td style="text-align: center; height: 53px; width: 47.5694px;">362</td>
-<td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
+<td style="height: 53px; width: 78.6806px;">Vanilla <code>FedAvg</code></td>
+<td style="height: 53px; width: 9.55556px;">5</td>
+<td style="height: 53px; width: 73.2361px;">0.25</td>
+<td style="height: 53px; width: 116.486px;">-</td>
+<td style="height: 53px; width: 74.125px;">-</td>
+<td style="height: 53px; width: 100.931px;">\(2.5331\times 10^{-18}\)</td>
+<td style="height: 53px; width: 175.931px;">\(2.6021\times 10^{-18}\)</td>
+<td style="height: 53px; width: 47.5694px;">362</td>
+<td style="height: 53px; width: 99.6806px;">-</td>
 </tr>
 <tr class="odd" style="height: 53px;">
-<td style="text-align: left; height: 53px; width: 78.6806px;">NbAFL</td>
-<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
-<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
-<td style="text-align: center; height: 53px; width: 116.486px;">70</td>
-<td style="text-align: center; height: 53px; width: 64.4722px;">0.01</td>
-<td style="text-align: center; height: 53px; width: 100.931px;"> \(7.2562\times 10^{-7}\) </td>
-<td style="text-align: center; height: 53px; width: 175.931px;"> \(6.6740\times10^{-7}\) </td>
-<td style="text-align: center; height: 53px; width: 47.5694px;">349</td>
-<td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
+<td style="height: 53px; width: 78.6806px;">NbAFL</td>
+<td style="height: 53px; width: 9.55556px;">5</td>
+<td style="height: 53px; width: 73.2361px;">0.25</td>
+<td style="height: 53px; width: 116.486px;">70</td>
+<td style="height: 53px; width: 74.125px;">0.01</td>
+<td style="height: 53px; width: 100.931px;">\(7.2562\times 10^{-7}\)</td>
+<td style="height: 53px; width: 175.931px;">\(6.6740\times10^{-7}\)</td>
+<td style="height: 53px; width: 47.5694px;">349</td>
+<td style="height: 53px; width: 99.6806px;">-</td>
 </tr>
 <tr class="even" style="height: 53px;">
-<td style="text-align: center; height: 53px; width: 78.6806px;">NbAFL w/ Random Mask</td>
-<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
-<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
-<td style="text-align: center; height: 53px; width: 116.486px;">70</td>
-<td style="text-align: center; height: 53px; width: 64.4722px;">0.01</td>
-<td style="text-align: center; height: 53px; width: 100.931px;">0.006601</td>
-<td style="text-align: center; height: 53px; width: 175.931px;">0.007577</td>
-<td style="text-align: center; height: 53px; width: 47.5694px;">356</td>
-<td style="text-align: center; height: 53px; width: 99.6806px;"> \(s=0.25\) </td>
+<td style="height: 53px; width: 78.6806px;">NbAFL w/ Random Mask</td>
+<td style="height: 53px; width: 9.55556px;">5</td>
+<td style="height: 53px; width: 73.2361px;">0.25</td>
+<td style="height: 53px; width: 116.486px;">70</td>
+<td style="height: 53px; width: 74.125px;">0.01</td>
+<td style="height: 53px; width: 100.931px;">0.006601</td>
+<td style="height: 53px; width: 175.931px;">0.007577</td>
+<td style="height: 53px; width: 47.5694px;">356</td>
+<td style="height: 53px; width: 99.6806px;">\(s=0.25\)</td>
 </tr>
 <tr class="odd" style="height: 35px;">
-<td style="text-align: center; height: 35px; width: 78.6806px;">NbAFL w/ Prob. Bin.</td>
-<td style="text-align: center; height: 35px; width: 9.55556px;">5</td>
-<td style="text-align: center; height: 35px; width: 73.2361px;">0.25</td>
-<td style="text-align: center; height: 35px; width: 116.486px;">70</td>
-<td style="text-align: center; height: 35px; width: 64.4722px;">0.01</td>
-<td style="text-align: center; height: 35px; width: 100.931px;">0.021241</td>
-<td style="text-align: center; height: 35px; width: 175.931px;">0.019635</td>
-<td style="text-align: center; height: 35px; width: 47.5694px;">356</td>
-<td style="text-align: center; height: 35px; width: 99.6806px;">-</td>
+<td style="height: 35px; width: 78.6806px;">NbAFL w/ Prob. Bin.</td>
+<td style="height: 35px; width: 9.55556px;">5</td>
+<td style="height: 35px; width: 73.2361px;">0.25</td>
+<td style="height: 35px; width: 116.486px;">70</td>
+<td style="height: 35px; width: 74.125px;">0.01</td>
+<td style="height: 35px; width: 100.931px;">0.021241</td>
+<td style="height: 35px; width: 175.931px;">0.019635</td>
+<td style="height: 35px; width: 47.5694px;">356</td>
+<td style="height: 35px; width: 99.6806px;">-</td>
 </tr>
 <tr class="even" style="height: 53px;">
-<td style="text-align: center; height: 53px; width: 78.6806px;">NbAFL w/ Dyn. Samp.</td>
-<td style="text-align: center; height: 53px; width: 9.55556px;">5</td>
-<td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
-<td style="text-align: center; height: 53px; width: 116.486px;">70</td>
-<td style="text-align: center; height: 53px; width: 64.4722px;">0.01</td>
-<td style="text-align: center; height: 53px; width: 100.931px;">0.010684</td>
-<td style="text-align: center; height: 53px; width: 175.931px;">0.010908</td>
-<td style="height: 53px; width: 47.5694px; text-align: center;">334</td>
-<td style="text-align: center; height: 53px; width: 99.6806px;"> \(\beta=0.05\) </td>
+<td style="height: 53px; width: 78.6806px;">NbAFL w/ Dyn. Samp.</td>
+<td style="height: 53px; width: 9.55556px;">5</td>
+<td style="height: 53px; width: 73.2361px;">0.25</td>
+<td style="height: 53px; width: 116.486px;">70</td>
+<td style="height: 53px; width: 74.125px;">0.01</td>
+<td style="height: 53px; width: 100.931px;">0.010684</td>
+<td style="height: 53px; width: 175.931px;">0.010908</td>
+<td style="height: 53px; width: 47.5694px;">334</td>
+<td style="height: 53px; width: 99.6806px;">\(\beta=0.05\)</td>
 </tr>
 </tbody>
 </table>
