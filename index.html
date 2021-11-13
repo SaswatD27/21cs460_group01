@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -90,16 +91,19 @@
       color: white;
     }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://www.niser.ac.in/~smishra/teach/cs460/2021/project/21cs460_group02/libs/katex/katex.min.css">
+
+   <link rel="stylesheet" href="https://www.niser.ac.in/~smishra/teach/cs460/2021/project/21cs460_group02/libs/highlight/github.min.css">
 </head>
-<div>
 <div>
 <div class="container">&nbsp;</div>
 </div>
-</div>
+<div>
 <div class="container" style="padding-left: 80px;">&nbsp;</div>
 </div>
-</div>
-</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -131,9 +135,9 @@
 </ul>
 <h4>What we intend to do - a brief sketch</h4>
 <ul>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Implement a Federated Learning algorithm (tentatively </span><span style="font-weight: 400;">FederatedAveraging</span><span style="font-weight: 400;">) after locally training models using algorithms like SGD (as suggested) on generated datasets, or even implementing some neural network(s) if possible using popular datasets (viz. FEMNIST, Shakespeare, Sentiment140, CIFAR 10) if we are feeling bold. We can use TensorFlow and SherpaAI for this if possible/needed (no promises).</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Using the (local) learning algorithm as a baseline, we can compare the results of our FL based trained-and-aggregated model with centralised learning with the same algorithm, and some other popular algorithms.</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><span style="font-weight: 400;">Suggest improvements to the paradigm just implemented in terms of</span></span>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Implement a Federated Learning algorithm (tentatively  <span style="font-weight: 400;">FederatedAveraging <span style="font-weight: 400;">) after locally training models using algorithms like SGD (as suggested) on generated datasets, or even implementing some neural network(s) if possible using popular datasets (viz. FEMNIST, Shakespeare, Sentiment140, CIFAR 10) if we are feeling bold. We can use TensorFlow and SherpaAI for this if possible/needed (no promises). </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Using the (local) learning algorithm as a baseline, we can compare the results of our FL based trained-and-aggregated model with centralised learning with the same algorithm, and some other popular algorithms. </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><span style="font-weight: 400;">Suggest improvements to the paradigm just implemented in terms of
 <ol>
 <li>The aggregating formula/algorithm;</li>
 <li>minimising rounds of communication and computational cost per local device; and/or</li>
@@ -141,24 +145,24 @@
 </ol>
 </li>
 </ul>
-<p><span style="font-weight: 400;">Then we will see how said tweaks work in terms of these metrics and report any observed improvements/changes (fingers crossed).</span></p>
+<p><span style="font-weight: 400;">Then we will see how said tweaks work in terms of these metrics and report any observed improvements/changes (fingers crossed). </p>
 <h4>Midway Targets</h4>
 <ul>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Successfully implement an FL model, and come up with some preliminary results;</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Suggest some tweaks and improvements to test out;</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">If needed, present pertinent concepts from relevant literature.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Successfully implement an FL model, and come up with some preliminary results; </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Suggest some tweaks and improvements to test out; </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">If needed, present pertinent concepts from relevant literature. </li>
 </ul>
 <h4>Work Division</h4>
 <ol>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Coding/Privacy based considerations - Joint task, will divide up coding of different components fluidly as needed.</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Data analysis and visualisation - Suraj</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Mathematics, formulae, proofs - Saswat</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Report writing and project website maintenance - Joint task</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Coding/Privacy based considerations - Joint task, will divide up coding of different components fluidly as needed. </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Data analysis and visualisation - Suraj </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Mathematics, formulae, proofs - Saswat </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Report writing and project website maintenance - Joint task </li>
 </ol>
 <h4>Expected Results</h4>
 <ul>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Performance of FL based learning: almost as sound as if the learning was centralised, and maybe more nuanced.</span></li>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Either of these: Increased privacy, less communication rounds with the server, less/quicker local device computation, better aggregation.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Performance of FL based learning: almost as sound as if the learning was centralised, and maybe more nuanced. </li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Either of these: Increased privacy, less communication rounds with the server, less/quicker local device computation, better aggregation. </li>
 </ul>
 <h4>Relevant Papers</h4>
 <ul>
@@ -173,6 +177,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -180,6 +188,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -187,6 +199,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -194,6 +210,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -206,6 +226,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -219,7 +243,7 @@
 <p>Addresses issues such as unbalanced volume of datapoints across all clients, limited communication capabilities of clients (via multiple rounds of communication), and the mass distributed nature of the clients, and the non-IID nature of data as an individual&rsquo;s data is specific;</p>
 </li>
 <li>
-<p>Introduces <code>FedAvg</code> (<span class="math inline">\(w_{t+1}\gets\sum_{i=1}^K\frac{n_k}{n}w_{t+1}^k\)</span>);</p>
+<p>Introduces <code>FedAvg</code> ( \(w_{t+1}\gets\sum_{i=1}^K\frac{n_k}{n}w_{t+1}^k\) );</p>
 </li>
 <li>
 <p>Talks about controlling parallelism of local computation and increased local computation by varying batch size for gradient descent (decreasing it increases amount/precision of computation, no. of rounds, and no. of clients queried per round (affects parallelism).</p>
@@ -236,7 +260,7 @@
 <li><strong>Wei et al</strong>
 <ul>
 <li>
-<p>Introduces Gaussian noise w.r.t. a clipping parameter <span class="math inline">\(C\)</span> to weight vector uploads, weights scaled w.r.t. <span class="math inline">\(C\)</span>;</p>
+<p>Introduces Gaussian noise w.r.t. a clipping parameter  \(C\)  to weight vector uploads, weights scaled w.r.t.  \(C\) ;</p>
 </li>
 <li>
 <p>Motivation: Na&iuml;vely uploaded weights carry the risk of being used by adversaries to compromise users;</p>
@@ -313,8 +337,8 @@
 <li>Extra:<strong> Ji et al</strong>
 <ul>
 <li>Proposes dynamic sampling and selective mask;</li>
-<li>Dynamic sampling: In contrast to the usual way of sampling clients during each round of communication (i.e. static sampling), we define a decay constant, called <span class="math inline">\(\beta\), and if the initial sampling rate is <span class="math inline">\(C\)</span>, then we choose <span class="math inline">\(\frac{C}{\exp(\beta t)}\)</span> fraction of clients for round <span class="math inline">\(t\)</span> (starting with <span class="math inline">\(t=0\)</span>)</span>;</li>
-<li>Selective mask: Instead of fully (uniformly) randomised selection of indices for a mask, choose the top <span class="math inline">\(k\)</span> indices with the most significant updates to the initial model for each client;</li>
+<li>Dynamic sampling: In contrast to the usual way of sampling clients during each round of communication (i.e. static sampling), we define a decay constant, called  \(\beta\), and if the initial sampling rate is  \(C\) , then we choose  \(\frac{C}{\exp(\beta t)}\)  fraction of clients for round  \(t\)  (starting with  \(t=0\) ) ;</li>
+<li>Selective mask: Instead of fully (uniformly) randomised selection of indices for a mask, choose the top  \(k\)  indices with the most significant updates to the initial model for each client;</li>
 <li>Selective mask consistently outperformed random mask in terms of accuracy and rate of convergence;</li>
 <li>Dynamic sampling gave accuracy comparable to static sampling, but at a significant loss in communication cost.</li>
 <li><strong>Remarks:</strong>
@@ -329,6 +353,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -336,6 +364,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -344,7 +376,7 @@
 <p>For aggregation, we used <code>FedAvg </code>for the most vanilla FL implementation, and then added to it as necessary for the implementation of more sophisticated FL techniques;</p>
 </li>
 <li>
-<p>The Gaussian Mechanism to provide <span class="math inline">\((\varepsilon,\delta)\)</span>-differential privacy pre-upload from each device (Noising before Aggregation), as introduced by Wei et al.;</p>
+<p>The Gaussian Mechanism to provide  \((\varepsilon,\)\) -differential privacy pre-upload from each device (Noising before Aggregation), as introduced by Wei et al.;</p>
 </li>
 <li>
 <p><em>Static Sampling</em> of clients for every round of training to reduce communication rounds per user;</p>
@@ -362,6 +394,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -369,6 +405,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -376,13 +416,21 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 <div>
 <div>
 <div>
-<p>The generated datasets, generated around a pre-chosen/generated "true weights vector" (we chose the dimension of these weight vectors to be 7) (e.g. <span class="math inline">\([1, 2, 4, 3, 5, 6, 1.2]\)</span>), are mostly IID as we focused more on implementing a model atop that.</p>
+<div>
+<div>
+<p>The generated datasets, generated around a pre-chosen/generated "true weights vector" (we chose the dimension of these weight vectors to be 7) (e.g.  \([1, 2, 4, 3, 5, 6, 1.2]\) ), are mostly IID as we focused more on implementing a model atop that.</p>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -390,6 +438,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -397,35 +449,43 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
 <ol>
 <li><strong>Centralised Learning (As a Baseline)</strong><br />
-<p>For centralised learning, we simply gathered and flattened the list of all local datasets into a cumulative list of all datapoints, and ran SGD on it for 100 epochs.<br />Time Taken <span class="math inline">\(\approx 268-270\)</span> seconds.<br />Average Training Error for Centralised Learning on SGD <span class="math inline">\(\approx 3.2472\times 10^{-29}\).</span><br />Average Testing Error for Centralised Learning on SGD <span class="math inline">\(\approx 3.2154 \times 10^{-29}\).</span></p>
+<p>For centralised learning, we simply gathered and flattened the list of all local datasets into a cumulative list of all datapoints, and ran SGD on it for 100 epochs.<br />Time Taken  \(\approx 268-270\)  seconds.<br />Average Training Error for Centralised Learning on SGD  \(\approx 3.2472\times 10^{-29}\). <br />Average Testing Error for Centralised Learning on SGD  \(\approx 3.2154 \times 10^{-29}\). </p>
 </li>
 <li><strong>Vanilla <code>FederatedAveraging/FedAvg</code></strong>
-<p>We then ran vanilla <code>FedAvg</code> with static sampling of clients at a rate of 0.25 of the client population per round of training on the above mentioned local datasets, with 100 epochs per round of local training. Number of rounds, <span class="math inline">\(T=5\)</span>.<br />Time taken <span class="math inline">\(\approx 362\)</span> seconds.<br />Average Training Error for Vanilla FedAvg on SGD <span class="math inline">\(\approx 2.5331\times 10^{-18}\)</span>.<br />Average Testing Error for Vanilla FedAvg on SGD <span class="math inline">\(\approx 2.6021\times 10^{-18}\)</span>.</p>
+<p>We then ran vanilla <code>FedAvg</code> with static sampling of clients at a rate of 0.25 of the client population per round of training on the above mentioned local datasets, with 100 epochs per round of local training. Number of rounds,  \(T=5\) .<br />Time taken  \(\approx 362\)  seconds.<br />Average Training Error for Vanilla FedAvg on SGD  \(\approx 2.5331\times 10^{-18}\) .<br />Average Testing Error for Vanilla FedAvg on SGD  \(\approx 2.6021\times 10^{-18}\) .</p>
 <ol>
 <li><strong>Noising before Aggregation (From Wei et al)</strong>
 <p>Adds Gaussian noise to appropriately clipped weights from each user. Motivation: To stop attacks involving reconstruction of raw data/private information from na&iuml;ve uploading of weight vectors/matrices. Optionally adds downlink DP, but we felt it was unnecessary.</p>
-<p>We ran <code>FedAvg</code> with static sampling of clients at a rate of 0.25 per round of training, clipping the locally generated weight vectors to gain bounds (defining upper bound of the norm of a weight vector as <span class="math inline">\(C =1.01\times\max(w_i)\)</span>, where <span class="math inline">\(w -\)</span> weight vector, for the sake of computing the sensitivity of queries for the weight vectors, then adding Gaussian noise calibrated to <span class="math inline">\(C,\varepsilon,\delta\)</span> to each weight (<span class="math inline">\(\varepsilon=70,\delta=0.1\)</span>) with 100 epochs per round of local training. Number of rounds, <span class="math inline">\(T=5\)</span>.<br />Time taken <span class="math inline">\(\approx 349\)</span> seconds (which makes it about as fast as vanilla <code>FedAvg</code>).<br />Average Training Error for NbA FedAvg on SGD <span class="math inline">\(\approx 7.2562\times 10^{-7}\)</span>.<br />Average Testing Error for NbA FedAvg on SGD <span class="math inline">\(\approx 6.6740\times10^{-7}\)</span>.</p>
+<p>We ran <code>FedAvg</code> with static sampling of clients at a rate of 0.25 per round of training, clipping the locally generated weight vectors to gain bounds (defining upper bound of the norm of a weight vector as  \(C =1.01\times\max(w_i)\) , where  \(w -\)  weight vector, for the sake of computing the sensitivity of queries for the weight vectors, then adding Gaussian noise calibrated to  \(C,\varepsilon,\delta\)  to each weight ( \(\varepsilon=70,\delta=0.1\) ) with 100 epochs per round of local training. Number of rounds,  \(T=5\) .<br />Time taken  \(\approx 349\)  seconds (which makes it about as fast as vanilla <code>FedAvg</code>).<br />Average Training Error for NbA FedAvg on SGD  \(\approx 7.2562\times 10^{-7}\) .<br />Average Testing Error for NbA FedAvg on SGD  \(\approx 6.6740\times10^{-7}\) .</p>
 </li>
 </ol>
 </li>
 <li><strong>NbAFL with Random Mask</strong>
-<p>We use the same setup as for the above NbAFL implementation, but with a layer of uniformly chosen random masks, excluding <span class="math inline">\(\approx s=0.25\)</span> of the weights, prior to uploading by a client. Seems to consistently outperform base NbAFL in terms of accuracy, also reduces communication overhead!<br />Time taken <span class="math inline">\(\approx 356\)</span> seconds.<br />Average Training Error <span class="math inline">\(\approx 0.006601\).</span><br />Average Testing Error <span class="math inline">\(\approx 0.007577\).</span></p>
+<p>We use the same setup as for the above NbAFL implementation, but with a layer of uniformly chosen random masks, excluding  \(\approx s=0.25\)  of the weights, prior to uploading by a client. Seems to consistently outperform base NbAFL in terms of accuracy, also reduces communication overhead!<br />Time taken  \(\approx 356\)  seconds.<br />Average Training Error  \(\approx 0.006601\). <br />Average Testing Error  \(\approx 0.007577\). </p>
 </li>
 <li><strong>NbAFL with Probabilistic Binarisation</strong>
-<p>We again use the same setup and parameters as our vanilla NbAFL implementation, but with probabilistic binarisation implemented atop it.<br />Time taken <span class="math inline">\(\approx 356\)</span> seconds.<br />Average Training Error <span class="math inline">\(\approx 0.021241\)</span>.<br />Average Testing Error <span class="math inline">\(\approx 0.019635\)</span></p>
+<p>We again use the same setup and parameters as our vanilla NbAFL implementation, but with probabilistic binarisation implemented atop it.<br />Time taken  \(\approx 356\)  seconds.<br />Average Training Error  \(\approx 0.021241\) .<br />Average Testing Error  \(\approx 0.019635\) </p>
 </li>
 <li><strong>NbAFL with Dynamic Sampling</strong>
-<p>We again adopt the same setup as that for our vanilla NbAFL implementation, but instead of static sampling of clients, we sample clients with an initial rate of <span class="math inline">\(0.25\)</span>, which decays by a factor of <span class="math inline">\(\frac 1{\exp(\beta t)}\)</span>, where <span class="math inline">\(t =\)</span> number of rounds elapsed. We take <span class="math inline">\(\beta=0.05\)</span>.<br />Time taken <span class="math inline">\(\approx 334\)</span> seconds.<br />(Saves on time and no. of communication rounds!)<br />Average Training Error <span class="math inline">\(\approx 0.010684\)</span>.<br />Average Testing Error <span class="math inline">\(\approx 0.010908\)</span>.</p>
+<p>We again adopt the same setup as that for our vanilla NbAFL implementation, but instead of static sampling of clients, we sample clients with an initial rate of  \(0.25\) , which decays by a factor of  \(\frac 1{\exp(\beta t)}\) , where  \(t =\)  number of rounds elapsed. We take  \(\beta=0.05\) .<br />Time taken  \(\approx 334\)  seconds.<br />(Saves on time and no. of communication rounds!)<br />Average Training Error  \(\approx 0.010684\) .<br />Average Testing Error  \(\approx 0.010908\) .</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -433,18 +493,22 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
 <div id="tab:my-table">
-<table style="margin-left: auto; margin-right: auto; height: 353px;"><caption>Local Learning Rate, <span class="math inline">\(\alpha = 0.01\)</span>; No. of local iterations for SGD <span class="math inline">\(=100\)</span>, No. of clients <span class="math inline">\(=500\)</span></caption>
+<table style="margin-left: auto; margin-right: auto; height: 353px;"><caption>Local Learning Rate,  \(\alpha = 0.01\) ; No. of local iterations for SGD  \(=100\) , No. of clients  \(=500\) </caption>
 <thead>
 <tr class="header" style="height: 53px;">
 <th style="text-align: left; height: 53px; width: 78.6806px;">Name of Model</th>
 <th style="text-align: left; height: 53px; width: 9.55556px;">T</th>
 <th style="text-align: left; height: 53px; width: 73.2361px;">Client Sampling Rate</th>
-<th style="text-align: left; height: 53px; width: 116.486px;"><span class="math inline">\(\varepsilon\)</span></th>
-<th style="text-align: left; height: 53px; width: 64.4722px;"><span class="math inline">\(delta\)</span></th>
+<th style="text-align: left; height: 53px; width: 116.486px;"> \(\varepsilon\) </th>
+<th style="text-align: left; height: 53px; width: 64.4722px;"> \(\delta\) </th>
 <th style="text-align: left; height: 53px; width: 100.931px;">Training Error</th>
 <th style="text-align: left; height: 53px; width: 175.931px;">Testing Error</th>
 <th style="text-align: left; height: 53px; width: 47.5694px;">Time Taken (sec)</th>
@@ -458,8 +522,8 @@
 <td style="text-align: center; height: 53px; width: 73.2361px;">-</td>
 <td style="text-align: center; height: 53px; width: 116.486px;">-</td>
 <td style="text-align: center; height: 53px; width: 64.4722px;">-</td>
-<td style="text-align: center; height: 53px; width: 100.931px;"><span class="math inline">\(3.2472\times 10^{-29}\)</span></td>
-<td style="text-align: center; height: 53px; width: 175.931px;"><span class="math inline">\(3.2154 \times 10^{-29}\)</span></td>
+<td style="text-align: center; height: 53px; width: 100.931px;"> \(3.2472\times 10^{-29}\) </td>
+<td style="text-align: center; height: 53px; width: 175.931px;"> \(3.2154 \times 10^{-29}\) </td>
 <td style="text-align: center; height: 53px; width: 47.5694px;">268 - 270</td>
 <td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
 </tr>
@@ -469,8 +533,8 @@
 <td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
 <td style="text-align: center; height: 53px; width: 116.486px;">-</td>
 <td style="text-align: center; height: 53px; width: 64.4722px;">-</td>
-<td style="text-align: center; height: 53px; width: 100.931px;"><span class="math inline">\(2.5331\times 10^{-18}\)</span></td>
-<td style="text-align: center; height: 53px; width: 175.931px;"><span class="math inline">\(2.6021\times 10^{-18}\)</span></td>
+<td style="text-align: center; height: 53px; width: 100.931px;"> \(2.5331\times 10^{-18}\) </td>
+<td style="text-align: center; height: 53px; width: 175.931px;"> \(2.6021\times 10^{-18}\) </td>
 <td style="text-align: center; height: 53px; width: 47.5694px;">362</td>
 <td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
 </tr>
@@ -480,8 +544,8 @@
 <td style="text-align: center; height: 53px; width: 73.2361px;">0.25</td>
 <td style="text-align: center; height: 53px; width: 116.486px;">70</td>
 <td style="text-align: center; height: 53px; width: 64.4722px;">0.01</td>
-<td style="text-align: center; height: 53px; width: 100.931px;"><span class="math inline">\(7.2562\times 10^{-7}\)</span></td>
-<td style="text-align: center; height: 53px; width: 175.931px;"><span class="math inline">\(6.6740\times10^{-7}\)</span></td>
+<td style="text-align: center; height: 53px; width: 100.931px;"> \(7.2562\times 10^{-7}\) </td>
+<td style="text-align: center; height: 53px; width: 175.931px;"> \(6.6740\times10^{-7}\) </td>
 <td style="text-align: center; height: 53px; width: 47.5694px;">349</td>
 <td style="text-align: center; height: 53px; width: 99.6806px;">-</td>
 </tr>
@@ -494,7 +558,7 @@
 <td style="text-align: center; height: 53px; width: 100.931px;">0.006601</td>
 <td style="text-align: center; height: 53px; width: 175.931px;">0.007577</td>
 <td style="text-align: center; height: 53px; width: 47.5694px;">356</td>
-<td style="text-align: center; height: 53px; width: 99.6806px;"><span class="math inline">\(s=0.25\)</span></td>
+<td style="text-align: center; height: 53px; width: 99.6806px;"> \(s=0.25\) </td>
 </tr>
 <tr class="odd" style="height: 35px;">
 <td style="text-align: center; height: 35px; width: 78.6806px;">NbAFL w/ Prob. Bin.</td>
@@ -516,7 +580,7 @@
 <td style="text-align: center; height: 53px; width: 100.931px;">0.010684</td>
 <td style="text-align: center; height: 53px; width: 175.931px;">0.010908</td>
 <td style="height: 53px; width: 47.5694px; text-align: center;">334</td>
-<td style="text-align: center; height: 53px; width: 99.6806px;"><span class="math inline">\(\beta=0.05\)</span></td>
+<td style="text-align: center; height: 53px; width: 99.6806px;"> \(\beta=0.05\) </td>
 </tr>
 </tbody>
 </table>
@@ -524,6 +588,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -531,6 +599,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -538,6 +610,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -552,10 +628,10 @@
 <p>Trying other mechanisms (viz. exponential) out on NbAFL for possible improvement, or explore locally differentially private techniques instead (some baseline work on this exists);</p>
 </li>
 <li>
-<p>Trying Selective Mask from out, and slightly diffusing the choice from the top <span class="math inline">\(k\)</span> updates to some of the lower updates;</p>
+<p>Trying Selective Mask from out, and slightly diffusing the choice from the top  \(k\)  updates to some of the lower updates;</p>
 </li>
 <li>
-<p>Making dynamic sample more dynamic and efficient by calibrating decay w.r.t. error per round of communication (more error<span class="math inline">\(\implies\)</span>less decay;</p>
+<p>Making dynamic sample more dynamic and efficient by calibrating decay w.r.t. error per round of communication (more error \(\implies\) less decay;</p>
 </li>
 <li>
 <p>Exploring mutual benefits of probabilistic quantisation and noise addition, calibrating no. of quanta to the magnitude of the noise;</p>
@@ -571,6 +647,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -578,19 +658,35 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div><hr /></div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <p>Here is the <a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_01.ipynb">link</a> to the .ipynb file containing the older version of our code (updated last on 17 Oct '21).</p>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div><hr /></div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -598,6 +694,10 @@
 (Kindly Exclude The Title and Bibliography Slides from the Slide Count)</div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>
@@ -605,16 +705,28 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div><hr /></div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div>&nbsp;</div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <div>
 <div><hr />
@@ -623,6 +735,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <ul>Since the midway, we did a number of things, the most notable of which are as follows.
 <li>
@@ -642,15 +758,31 @@
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <h4>Specifications of our new framework</h4>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p><strong>Dataset:</strong></p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <dl>
 <dd>
@@ -667,7 +799,7 @@
 <p><strong>Hidden Layers</strong>: 32 units and 512 units* (later ditched for speed) with ReLU activation.</p>
 </li>
 <li>
-<p><strong>Dropout Layer*</strong> (rate = 0.2): Before the <span class="math inline">\(2^\text{nd}\)</span> Hidden Layer (later ditched)</p>
+<p><strong>Dropout Layer*</strong> (rate = 0.2): Before the  \(2^\text{nd}\)  Hidden Layer (later ditched)</p>
 </li>
 <li>
 <p><strong>Output Layer:</strong> 10 units with Softmax activation.</p>
@@ -679,25 +811,40 @@
 </dd>
 </dl>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>In a nutshell, due to time and computing power constraints, we ended up using a DNN with a flatten layer, a hidden layer with 32 units with ReLU activation, followed by an output layer with 10 units with softmax activation, not to mention the batch normalisation layers before the hidden and output layer. As we shall soon see, we found that this was sufficient to give a high degree of accuracy on MNIST.</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <dl>
 <dt>Federated Averaging was implemented similarly as for our older framework, as per the original paper on Federated Averaging by McMahan et al.</dt>
 </dl>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>A salient feature of our framework is that it is flexible enough to be used for any Tensorflow based neural network (at least ones that are created using keras.sequential) and for any dataset that is fed into such an NN.</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <h4>Baselines</h4>
 </div>
-<div>
-<p><strong>N.B.</strong> For testing, we initialised the same server model (i.e. we started training with a weight vector that was common for every run, for example, a weight vector with all 0s for each "coordinate" in the vector) for each run of each model, for a fair comparison.</p>
+</div>
 </div>
 <div>
-<p>&nbsp;</p>
+<p><strong>N.B.</strong> For testing, we initialised the same server model (i.e. we started training with a weight vector that was common for every run, for example, a weight vector with all 0s for each "coordinate" in the vector) for each run of each model, for a fair comparison.</p>
 </div>
 <div>
 <p>Given the conception of the new code framework with the DNN on MNIST, we re-ran some of the relevant baselines using it, and we got the following results. Please note that the provided figures/graphs are representative, as in they are just a few from the many runs of each model/algorithm.</p>
@@ -721,95 +868,205 @@
 <p><strong>FedAveraging with Dynamic Sampling</strong></p>
 </div>
 <div>
-<p>For a proper recaptitulation of what Dynamic Sampling does, refer to our prior discussion regarding Ji et al in the Midway section. But in a nutshell, what it does is reduce the number of clients sampled per round w.r.t. a decay coefficient <span class="math inline">\(\beta\)</span> and the initial client sampling rate (i.e. by multiplying <span class="math inline">\(\frac 1{\exp(-\beta t)}\)</span> to the initial sampling rate).</p>
+<p>For a proper recaptitulation of what Dynamic Sampling does, refer to our prior discussion regarding Ji et al in the Midway section. But in a nutshell, what it does is reduce the number of clients sampled per round w.r.t. a decay coefficient  \(\beta\)  and the initial client sampling rate (i.e. by multiplying  \(\frac 1{\exp(-\beta t)}\)  to the initial sampling rate).</p>
 </div>
 <div>
-<p><strong>Decay Coeff. <span class="math inline">\(\beta\)</span>:</strong> 0.05<br /><strong>Initial Sampling Rate :</strong> 0.25<br /><strong>Test Accuracy:</strong> 93.7%<br /><strong>Number of Rounds:</strong> 50</p>
+<p><strong>Decay Coeff.  \(\beta\) :</strong> 0.05<br /><strong>Initial Sampling Rate :</strong> 0.25<br /><strong>Test Accuracy:</strong> 93.7%<br /><strong>Number of Rounds:</strong> 50</p>
 </div>
+<div>
+<div>
 <div>
 <p><img src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/MNIST%20Dyn%201%2020.png" alt="image" /></p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>Note that dynamic sampling decreases the number of clients per round independent of the change of accuracy per round.</p>
 <p><br />The problem? This can slow down convergence and error rectification, or even occasionally and briefly lead to consecutive increases in error because aggregation of several client weights leads to a good aggregate weights estimate, but instead, the number of clients is continually decreasing here with the naive approach that decreasing the number of clients per round would decrease the volume of communication. Okay, that is true, but especially in a short term manner. In the long term, slow error rectification will lead to the model requiring a larger number of rounds of communication, which incurs both a time cost and communication cost in that way. But we can see that the thinking behind this paradigm is not without merit, we got a really good accuracy for substantially less clients' involvement vis-a-vis the vanilla case. But can we couple the reduction of the number of clients with faster convergence in a way that we are fine having the initial decay coefficient (which is positively correlated to how fast the decay occurs) as long as the error does not increase beyond a previously attained error value, at which point we would want to slow down the decay and make sure to involve more clients than in the last round to mitigate the amount of error and bring the amount of accuracy eventually to the highest previously attained accuracy beyond which it fell off. This is precisely the motivation behind us introducing <strong>adaptive sampling</strong>.</p>
 </div>
-<div>
-<p>More clients involved<span class="math inline">\(\implies\)</span>Better averaging<span class="math inline">\(\implies\)</span>Less error.</p>
+</div>
 </div>
 <div>
-<p><br /><strong>Adaptive sampling<br /></strong>That is, we keep successively penalising the decay coefficient for any fall in accuracy, while retaining the previous index, so as to increase the number of clients for the next round and slow the decay in the sampling rate down, and restore the decay coefficient when accuracy reaches the previous high.</p>
+<div>
+<div>
+<p>More clients involved \(\implies\) Better averaging \(\implies\) Less error.</p>
 </div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<h3>I. Adaptive Sampling</h3>
+That is, we keep successively penalising the decay coefficient for any fall in accuracy, while retaining the previous index, so as to increase the number of clients for the next round and slow the decay in the sampling rate down, and restore the decay coefficient when accuracy reaches the previous high.</div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>The pseudocode for adaptive sampling is as follows.</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/Adaptive%20Sampling%20Algo.jpg" alt="image" width="540" height="628" /></p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
-<div>
-<p><strong>Note :</strong> <span class="math inline">\(n_i\)</span> is the number of datapoints possessed by the client corresponding to <span class="math inline">\(\Omega_t^i\)</span>, and <span class="math inline">\(n\)</span> is the total of all <span class="math inline">\(n_i\)</span>&rsquo;s for each <span class="math inline">\(\Omega_t^i\in L\)</span>.</p>
+</div>
 </div>
 <div>
-<p>Also, note that <span class="math inline">\((\gamma)\) is just a parameter we introduced in case we needed to tune the penalisation of the decay coefficient, and we kept it equal to 1 to start off with, and as it turned out, that worked just fine, so we kept it at 1.</span></p>
+<div>
+<div>
+<p><strong>Note :</strong>  \(n_i\)  is the number of datapoints possessed by the client corresponding to  \(\Omega_t^i\) , and  \(n\)  is the total of all  \(n_i\) &rsquo;s for each  \(\Omega_t^i\in L\) .</p>
 </div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<p>Also, note that  \((\gamma)\) is just a parameter we introduced in case we needed to tune the penalisation of the decay coefficient, and we kept it equal to 1 to start off with, and as it turned out, that worked just fine, so we kept it at 1. </p>
+</div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>We again ran several rounds of experiments for adaptive sampling and some representative results, with similar parameters as for the previous representative run for dynamic sampling, are as follows:</p>
 </div>
-<div>
-<p><strong>Initial Decay Coeff. <span class="math inline">\(\beta\)</span>:</strong> 0.05<br /><strong>Initial Sampling Rate :</strong> 0.25<br /><strong>Gamma <span class="math inline">\((\gamma)\)</span> :</strong> 1<br /><strong>Test Accuracy:</strong> 94.16%<br /><strong>Rounds of Communication:</strong> 20</p>
 </div>
+</div>
+<div>
+<div>
+<div>
+<p><strong>Initial Decay Coeff.  \(\beta\) :</strong> 0.05<br /><strong>Initial Sampling Rate :</strong> 0.25<br /><strong>Gamma  \((\gamma)\)  :</strong> 1<br /><strong>Test Accuracy:</strong> 94.16%<br /><strong>Rounds of Communication:</strong> 20</p>
+</div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>(It would have risen as accuracy fell in the last step; it had an accuracy of 94.59% after round 19, but since we only specified 20 rounds of communication, it stalled at that.)</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p><img style="float: left;" src="https://github.com/SaswatD27/21cs460_group01/raw/main/images/MNIST%20Adap%201%2020.png" /></p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>&nbsp;</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>What immediately jumps out at us upon viewing this graph is that 1. it seems to lead to smoother convergence, sans any of the jaggedness as for dynamic sampling; and 2. it leads to convergence within lesser rounds of communication, albeit with marginally more clients per round on average being involved than dynamic sampling (owing to the penalisation of the decay coefficient at times along with stalling of the counter variable whenever accuracy drops), and knowing/assuming that the server calls on clients for communication round wise and clients in each round upload their local weights nearly simultaneously, lesser number of rounds implies lesser time taken for this entire exercise of federated learning.</p>
 </div>
-<div>
-<h3 id="fully-decentralised-p2p-fl-learning" class="unnumbered">Fully Decentralised P2P FL Learning:</h3>
 </div>
+</div>
+<div>
+<div>
+<div>
+<h3 id="fully-decentralised-p2p-fl-learning" class="unnumbered">II. Fully Decentralised P2P FL Learning:</h3>
+</div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <h4 id="motivation" class="unnumbered">Motivation:</h4>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>In federated learning, the server aggregates the weight vector of the devices to make a new model, which implies a significant degree of centralisation, which in turn creates a single entity for an adversary to attack or track communications to; alternatively, sending weights to a central server might not be desirable in certain contexts for the sake of privacy.</p>
 <p>In addition, traditional federated learning does not address its implementation for P2P networks, which has much potential given the advent of decentralisation to the extent that we see nowadays, and that of smart contracts and decentralised apps (dapps). Naturally, this has been a recent field of inquiry as far as federated learning is concerned.</p>
 <p>So, we decided to formulate a model for peer-to-peer learning where local training is done for all the peers involved in a round of training, and then after exchanging local weights among themselves, each device independently performs aggregation via FedAveraging (which in itself is not exactly an expensive task), and can compare the newly aggregated model with their existing ones to see what works best for them, and as a secondary consequence, guard against injection of illicit values by any malicious peer(s) (and we also gave quite some thought on how to nullify/penalise the malicious peer's influence or even remove them entirely in such an event).</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <h4 id="baselines-for-p2p-learning" class="unnumbered">Baselines for P2P Learning</h4>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <p>To reiterate, federated learning in the context of P2P networks (i.e. sans a server) is a nascent field of study.</p>
 <p><br />Some of the earliest models like BrainTorrent (2019), and that by Behera et al (JPMorgan Chase &amp; Co., 2021) involve taking (i.e. randomly choosing/electing) a temporary "leader" peer node to act in the capacity of the server, thus inducing a level of centralization, and the peers having to accept the leader&rsquo;s aggregation in good faith.</p>
@@ -817,9 +1074,17 @@
 <p>Then there are models like IPLS (2021) involve a client acting as a central "leader/server" that assigns tasks to its peers, which resembles task delegation more than imploring devices to work on their own data and their own data only.</p>
 <p>All of the serverless models we have come across involve making a peer a "temporary leader/server", and thus have a level of centralization, which brings privacy risks along with it. We aim to remove this aspect to obtain a completely decentralized FL paradigm for P2P networks.</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <h4 id="algorithm" class="unnumbered">Description of the Algorithm:</h4>
 </div>
+</div>
+</div>
+<div>
+<div>
 <div>
 <ol>
 <li>
@@ -840,9 +1105,25 @@
 </ol>
 <p>Peers query for how many models ditched the new global model, if a majority do, then initialize the next round of training with the last viable one. (Defends the system against erroneous value injection.)</p>
 </div>
+</div>
+</div>
+<div>
+<div>
 <h4>Experimental Results</h4>
+</div>
+</div>
+<div>
+<div>
 <p>In our experiments for our P2P federated learning mode, we simulated 100 peers/clients on the aforementioned framework on DNNs/MNIST, with a 0.25 client sampling rate. (Though, practically speaking, all this does is explore the case when 0.25 peers decide to participate in a round of training per round, though perhaps in a real life implementation, it may very well go beyond that, as peers shall seek to maximise the number of them that participate in a given round. 25% of clients chosen at random seemed to be a pretty good conservative estimate to us.)</p>
+</div>
+</div>
+<div>
+<div>
 <p><strong>Another caveat:</strong> we assume the absence of a malicious peer here, though should one be there, it cannot cause any damage due to each peer choosing the best of the current and the new model, and the only way the adversarial peer can "succeed" is by ensuring that the new model post-aggregation is better than the current model(s) already implemented on the devices, which is not exactly a win for any malicious peer intent on derailing the learning process, and if an aggregated model happens to be way off the rails due to adversarial interference and rejected by a majority of the peers, it shall be rejected entirely and the most recent accepted common aggregated model shall be agreed upon to continue training from the next round onwards. (Note that this shall work especially well on P2P networks with defences against Sybil attacks.)&nbsp;</p>
+</div>
+</div>
+<div>
+<div>
 <div id="tab:p2p-table" style="text-align: center;">
 <table style="margin-left: auto; margin-right: auto;"><caption>Results of Decentralised P2P Fed Learning</caption>
 <thead>
@@ -932,7 +1213,7 @@
 <p style="text-align: left;">For increasing privacy, differentially private noise can be added.</p>
 </li>
 </ul>
-<h3 style="text-align: left;">Subclustering of Clients w.r.t. their Local Updates and Creation of Specific Models for Minority Clusters</h3>
+<h3 style="text-align: left;">III. Subclustering of Clients w.r.t. their Local Updates and Creation of Specific Models for Minority Clusters</h3>
 <p style="text-align: left;">In general FL techniques create a common model useful for the majority of devices, suffices for most purposes, but in this process, any minor clusters of devices having different data (and ergo producing different weight vectors post local training) than most may benefit from getting more specific models appropriate for their data in certain contexts.</p>
 <p style="text-align: left;"><strong>Algorithm:</strong></p>
 <ul>
@@ -954,6 +1235,88 @@
 <p style="text-align: left;">Most baseline algorithms that we saw during our literature review suggested that most of the work that resembled this vein of thought was implemented by clustering devices based on their data itself in some fashion. We on the other hand chose to cluster devices based on the similarity between the local weights produced after local training during each round. (An honourable mention of such a baseline approach that the instructor pointed out would be FLaPS by Paul et al which one of the authors had gone through in the past but did not recall when the other author actually came up with this approach.)</p>
 <p style="text-align: left;">Unfortunately, at a much later stage, it seemed that there was indeed a similar work (with respect to an older version of our model) done by researchers at KTH, Sweden, with minor differences from our initial model.</p>
 <p style="text-align: left;">So we went ahead and explored adding a P2P component to intra-silo (i.e. within each minority class/cluster) training of specific models, which would endow an additional benefit in terms of each silo getting to keep their weights private; now this would not matter when the server is aware of the clustering pattern as it can easily compute the specific models, but let's say that a group of clients (say they belong to the same organisation/lab) opt to define (among themselves only, assuming they are all connected as peers) a cluster of their own, regardless of the cluster they have been accorded in that round, then given that the server is not made aware of that custom-defined silo/cluster, the specific model would stay private to the members of the cluster.</p>
-<h4 style="text-align: left;">Experimental Results</h4>
+<p style="text-align: left;">In short, this augmentation allows clients flexibility to define their own clusters, even if that mightt not give them optimal accuracy.</p>
+<h4 style="text-align: left;">Experimental Results (with P2P Intra Silo Learning Implemented)</h4>
+<p style="text-align: left;"><strong>Total number of devices:</strong>&nbsp;125</p>
+<p style="text-align: left;"><strong>Number of federated learning rounds(T):</strong>&nbsp;10<br /><br /><strong>Client Sampling Rate (per round):</strong> 0.25<br /><br /></p>
 </div>
+<div id="tab:subclustering">
+<table style="margin-left: auto; margin-right: auto;"><caption>Results of Subclustered FL</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">&nbsp;</th>
+<th style="text-align: left;">&nbsp;</th>
+<th style="text-align: center;" colspan="2">Average Testing Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: center;">No. of Devices</td>
+<td style="text-align: center;">For Global Model</td>
+<td style="text-align: center;">For Cluster Specific Models</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Majority Cluster</td>
+<td style="text-align: center;">110</td>
+<td style="text-align: center;"> \(\approx\)0.00203 </td>
+<td style="text-align: center;"> \(\approx\)  6.71926 \(\times 10^{-15}\) </td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Minority Cluster 1</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"> \(\approx\)0.15474 </td>
+<td style="text-align: center;"> \(\approx\)  6.30220 \(\times 10^{-13}\) </td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Minority Cluster 2</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"> \(\approx\)0.12130 </td>
+<td style="text-align: center;"> \(\approx\)  6.59985 \(\times 10^{-16}\) </td>
+</tr>
+</tbody>
+</table>
+<p>This goes on to show that for non-IID data or situations with clients that have different data could do well to utilise subclustering like this to obtain well-performing specific models.&nbsp;</p>
+<p style="text-align: left;">We have only conducted testing for the clusters obtained via DB SCAN on the weight vectors using the older framework (as we ran into time constraints and issues involving implementing DB SCAN on the (even flattened) weights of NNs produced using Keras.</p>
+<p style="text-align: left;">Note that we focused more on simulating these clusters in essence in that older framework, and the code would look more general in real-life use cases (in fact the not-successful code on the DNN/MNIST framework should be general in the abovementioned sense and closer to possible real-life implementations of this.)</p>
+<p style="text-align: left;">(Accuracy on custom-defined clusters has not been tested for given time constraints and that it is an option to be opted for at the clients' discretion and risk. Though given the errors on the global model be, one can expect errors to that tune or even less.)</p>
+</div>
+<h4>Possible Future Improvement(s)</h4>
+<ul>
+<li>
+<p>What about we store minority class models and use them as initial models for forks for the respective silos (given a minimum cluster size)? Will it be beneficial? Or will it lead to the splintering off of clients into a multitude of clusters and the overall model(s) catastrophically? We leave it as an open problem.</p>
+</li>
+</ul>
+<div><hr /></div>
+<strong>Code Links (for the Final Presentation's Material/Models):</strong>
+<ul>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_02_Functional.ipynb">Adaptive Sampling (MNIST/DNN) with Baselines</a></li>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/P2PModelMNIST.ipynb">P2P Model (MNIST/DNN)</a></li>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/Subclustering_P2P_OldFramework.ipynb">Subclustering Model (Old Framework) (Works)</a></li>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/Subclustering_MNIST(Not%20Working%20Yet).ipynb">Subclustering Model (MNIST/DNN) (More General but Doesn't Work)</a></li>
+</ul>
+<div><hr /></div>
+<h4>Final Presentation Slides</h4>
+(Kindly Exclude The Title and Bibliography Slides from the Slide Count)</div>
+</div>
+<div>
+<p><embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/21cs460_group01/raw/main/CS460_Team_01_Final_Presentation.pdf" width="500" height="375"></embed></p>
+</div>
+<div>
+<div><hr /></div>
+</div>
+<div>
+<p>We would like to take a moment to express our gratitude to Dr. Subhankar Mishra, not to gain any additional brownie points but to give credit where it is due, for urging us to consider working on federated learning for this project in the first place, which made all of this possible, and for his encouragement and guidance in this respect.</p>
+</div>
+<div>
+<p>And also to the copious amounts of caffeine that fueled this project.</p>
+</div>
+<div class="page-foot">
+  <div class="copyright">
+  </div>
+</div>
+</div>
+<script src="https://www.niser.ac.in/~smishra/teach/cs460/2021/project/21cs460_group02/libs/katex/katex.min.js"></script>
+<script src="https://www.niser.ac.in/~smishra/teach/cs460/2021/project/21cs460_group02/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
 </html>
