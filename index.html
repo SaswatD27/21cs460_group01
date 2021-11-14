@@ -102,12 +102,7 @@
 <div>
 <div class="container" style="padding-left: 80px;">&nbsp;</div>
 </div>
-<div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <div class="container"><header>
 <h1 style="text-align: center;">Course Project, CS460, Fall 2021-22</h1>
 <h2 style="text-align: center;">On Federated Learning and Possible Improvements</h2>
@@ -173,66 +168,20 @@
 <hr />
 <h4>Project Presentation Slides</h4>
 <embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/CS460-ML-Project-2021/raw/main/CS460%20-%20Project%20Proposal.pdf" width="500" height="375"></embed><hr /></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <h3>2. Project Midway</h3>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <h4>Literature Review</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <p>Some of the most important papers we referred to are listed below.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <ul>
 <li>McMahan, H. Brendan et al. &ldquo;Communication-Efficient Learning of Deep Networks from Decentralized Data.&rdquo;&nbsp;<em>AISTATS</em>&nbsp;(2017).</li>
 <li>Konecn&yacute;, Jakub et al. &ldquo;Federated Learning: Strategies for Improving Communication Efficiency.&rdquo;&nbsp;<em>ArXiv</em> abs/1610.05492 (2016).</li>
 <li>Wei, Kang et al. &ldquo;Federated Learning With Differential Privacy: Algorithms and Performance Analysis.&rdquo;&nbsp;<em>IEEE Transactions on Information Forensics and Security</em>&nbsp;15 (2020): 3454-3469.</li>
 <li>Ji, Shaoxiong et al. &ldquo;Dynamic Sampling and Selective Masking for Communication-Efficient Federated Learning.&rdquo;&nbsp;<em>ArXiv</em> abs/2003.09603 (2020).</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <ol>
 <li><strong>McMahan et al</strong>
 <ul>
@@ -350,33 +299,15 @@
 </ul>
 </li>
 </ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <h4>Techniques Used/Explored</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <ul>
 <li>
 <p>For aggregation, we used <code>FedAvg </code>for the most vanilla FL implementation, and then added to it as necessary for the implementation of more sophisticated FL techniques;</p>
 </li>
 <li>
-<p>The Gaussian Mechanism to provide  \((\varepsilon,\)\) -differential privacy pre-upload from each device (Noising before Aggregation), as introduced by Wei et al.;</p>
+<p>The Gaussian Mechanism to provide  \((\varepsilon,\delta)\) -differential privacy pre-upload from each device (Noising before Aggregation), as introduced by Wei et al.;</p>
 </li>
 <li>
 <p><em>Static Sampling</em> of clients for every round of training to reduce communication rounds per user;</p>
@@ -391,71 +322,16 @@
 <p>Considering/considered using: <em>Selective Mask</em>&nbsp;(especially when working with larger weight vectors/matrices).</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <h4>Experiments and Observations</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
 <p>We implemented <code>FedAvg</code> from scratch in Python, with a 0.25 static sampling rate, with anywhere between 3 to 5 (or more) rounds of calling for training from sampled (w.r.t. the uniform distribution) clients, with local training involving multiple linear regression implemented via Stochastic Gradient Descent on a synthetically generated dataset for about 500 clients, with static subsampling (contrast with dynamic subsampling).</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <p>The generated datasets, generated around a pre-chosen/generated "true weights vector" (we chose the dimension of these weight vectors to be 7) (e.g.  \([1, 2, 4, 3, 5, 6, 1.2]\) ), are mostly IID as we focused more on implementing a model atop that.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <p>As we are using regression here, we use, for a particular instance, average training/testing error per data point as a metric of a deployment&rsquo;s accuracy, and simply measure the time taken by running it on Google Colab and compare them as a rough measure of how quick each is, and implement centralised learning to serve as a baseline for our exploration of these FL paradigms.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <p>We then tried the above listed techniques, sometimes standalone or in conjunction with each other as follows.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <ol>
 <li><strong>Centralised Learning (As a Baseline)</strong><br />
 <p>For centralised learning, we simply gathered and flattened the list of all local datasets into a cumulative list of all datapoints, and ran SGD on it for 100 epochs.<br />Time Taken  \(\approx 268-270\)  seconds.<br />Average Training Error for Centralised Learning on SGD  \(\approx 3.2472\times 10^{-29}\). <br />Average Testing Error for Centralised Learning on SGD  \(\approx 3.2154 \times 10^{-29}\). </p>
@@ -479,27 +355,8 @@
 <p>We again adopt the same setup as that for our vanilla NbAFL implementation, but instead of static sampling of clients, we sample clients with an initial rate of  \(0.25\) , which decays by a factor of  \(\frac 1{\exp(\beta t)}\) , where  \(t =\)  number of rounds elapsed. We take  \(\beta=0.05\) .<br />Time taken  \(\approx 334\)  seconds.<br />(Saves on time and no. of communication rounds!)<br />Average Training Error  \(\approx 0.010684\) .<br />Average Testing Error  \(\approx 0.010908\) .</p>
 </li>
 </ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <p>The following table summarises the parameters used for and the results of our experiments (to be fair, we had to fiddle with a fair of different values for parameters and variations in algorithms to fix these for now)</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
 <div id="tab:my-table">
 <table style="margin-left: auto; margin-right: auto; height: 353px;"><caption>Local Learning Rate, \(\alpha = 0.01\) ; No. of local iterations for SGD \(=100\) , No. of clients \(=500\)</caption>
 <thead>
@@ -584,39 +441,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
 <p>Note that the errors happen to be quite small compared to the weight vectors' magnitude, with a maximum being in the neighbourhood of 1% error to "true" weight vector (norm/coordinates) ratio, roughly.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <h4>Suggested Tweaks and Possible Improvements to Try Out to Extend the Baselines</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
 <ul>
 <li>
 <p>Silo-ing users with similar characteristics and running a separate FL paradigm within these silos;</p>
@@ -644,69 +472,40 @@
 <p>Anything else that strikes our minds.</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
+
 <p>We may tentatively try implementing the above FL models for more complex local training algorithms (viz. ConvNets using FEMNIST), but this is secondary/optional.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
+
+
 <div><hr /></div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<p>Here is the <a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_01.ipynb">link</a> to the .ipynb file containing the older version of our code (updated last on 17 Oct '21).</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
+
+
+<p>Here is the <a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_01.ipynb">link</a> to the .ipynb file containing the midway version of our code.</p>
+
 <div><hr /></div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+<h3>Some Midway References</h3>
+<ol>
+<li>H. B. McMahan, E. Moore, D. Ramage, and B. A. y Arcas,
+“Communication-efficient learning of deep networks from
+decentralized data,”, 2016.</li>
+<li>K. Wei, J. Li, M. Ding, C. Ma, H. H. Yang, F. Farokhi, S. Jin,
+T. Q. S. Quek, and H. V. Poor, “Federated learning with differential
+privacy: Algorithms and performance analysis,” <em>IEEE Transactions on
+Information Forensics and Security</em>, 2020.</li>
+<li>J. Konecny, H. B. McMahan, F. X. Yu, P. Richt ́arik, A. T. Suresh,
+and D. Bacon, “Federated learning: Strategies for improving
+communication efficiency,” CoRR, vol. abs/1610.05492, 2016.</li>
+<li>S. Ji, W. Jiang, A. Walid, and X. Li, “Dynamic sampling and
+selective masking for communication-efficient federated learning,”
+CoRR, vol. abs/2003.09603, 2020.</li>
+</ol>
+<div><hr /></div>
 <h4>Midway Presentation Slides</h4>
 (Kindly Exclude The Title and Bibliography Slides from the Slide Count)</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<div>
-<div>
-<div>
+
+
 <p><embed style="background-image: url('img/object.gif'); display: block; margin-left: auto; margin-right: auto;" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/SaswatD27/21cs460_group01/raw/main/CS460_Team_01_Midway_Presentation.pdf" width="500" height="375"></embed></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <div>
 <div>
 <div>
@@ -1233,7 +1032,7 @@ That is, we keep successively penalising the decay coefficient for any fall in a
 <h4 style="text-align: left;">Note about Baselines and an Augmentation we Made</h4>
 <p style="text-align: left;">Some background on our (admittedly unorthodox) method of creating this model: one of us had actually conceived this while brainstorming all that we could get up to whilst cooking up and testing new models, and we implemented it to see whether it runs properly on simulated data (created in a way so that there are indeed minority classes devices that have similar data but are different in comparison to most other devices). Post that, we proceeded to look at models that might have a similar approach.</p>
 <p style="text-align: left;">Most baseline algorithms that we saw during our literature review suggested that most of the work that resembled this vein of thought was implemented by clustering devices based on their data itself in some fashion. We on the other hand chose to cluster devices based on the similarity between the local weights produced after local training during each round. (An honourable mention of such a baseline approach that the instructor pointed out would be FLaPS by Paul et al which one of the authors had gone through in the past but did not recall when the other author actually came up with this approach.)</p>
-<p style="text-align: left;">Unfortunately, at a much later stage, it seemed that there was indeed a similar work (with respect to an older version of our model) done by researchers at KTH, Sweden, with minor differences from our initial model.</p>
+<p style="text-align: left;">Unfortunately, at a much later stage, it seemed that there was indeed a similar work (with respect to an older version of our model) done by researchers at Keele University, UK (Briggs et al.) with minor differences from our initial model.</p>
 <p style="text-align: left;">So we went ahead and explored adding a P2P component to intra-silo (i.e. within each minority class/cluster) training of specific models, which would endow an additional benefit in terms of each silo getting to keep their weights private; now this would not matter when the server is aware of the clustering pattern as it can easily compute the specific models, but let's say that a group of clients (say they belong to the same organisation/lab) opt to define (among themselves only, assuming they are all connected as peers) a cluster of their own, regardless of the cluster they have been accorded in that round, then given that the server is not made aware of that custom-defined silo/cluster, the specific model would stay private to the members of the cluster.</p>
 <p style="text-align: left;">In short, this augmentation allows clients flexibility to define their own clusters, even if that mightt not give them optimal accuracy.</p>
 <h4 style="text-align: left;">Experimental Results (with P2P Intra Silo Learning Implemented)</h4>
@@ -1290,10 +1089,10 @@ That is, we keep successively penalising the decay coefficient for any fall in a
 <div><hr /></div>
 <strong>Code Links (for the Final Presentation's Material/Models):</strong>
 <ul>
-<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_02_Functional.ipynb">Adaptive Sampling (MNIST/DNN) with Baselines</a></li>
-<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/P2PModelMNIST.ipynb">P2P Model (MNIST/DNN)</a></li>
-<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/Subclustering_P2P_OldFramework.ipynb">Subclustering Model (Old Framework) (Works)</a></li>
-<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/Subclustering_MNIST(Not%20Working%20Yet).ipynb">Subclustering Model (MNIST/DNN) (More General but Doesn't Work)</a></li>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/CS460_FL_1_02_Functional.ipynb">I. Adaptive Sampling (MNIST/DNN) with Baselines</a></li>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/P2PModelMNIST.ipynb">II. P2P Model (MNIST/DNN)</a></li>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/Subclustering_P2P_OldFramework.ipynb">III. Subclustering Model (Old Framework) (Works)</a></li>
+<li><a href="https://github.com/SaswatD27/21cs460_group01/blob/main/Code/Subclustering_MNIST(Not%20Working%20Yet).ipynb">III.* Subclustering Model (MNIST/DNN) (More General but Doesn't Work; sans the P2P augmentation)</a></li>
 </ul>
 <div><hr /></div>
 <h4>Final Presentation Slides</h4>
@@ -1305,6 +1104,26 @@ That is, we keep successively penalising the decay coefficient for any fall in a
 <div>
 <div><hr /></div>
 </div>
+<h3>Some Additional References for the Final Presentation</h3>
+(In addition to the ones already mentioned in prior presentations.)
+<ol>
+<li>Monik Raj Behera et al. <em>Federated Learning using Peer-to-peer Network for Decentralized Orchestration of Model Weights</em>. Mar.
+2021.</li>
+<li>Li Chou et al. “Efficient and Less Centralized Federated Learning”.
+In: CoRR abs/2106.06627 (2021).</li>
+<li>Abhijit Guha Roy et al. “BrainTorrent: A Peer-to-Peer Environment
+for Decentralized Federated Learning”. In: CoRR abs/1905.06731
+(2019).</li>
+<li>Shaoxiong Ji et al. “Dynamic Sampling and Selective Masking for
+Communication-Efficient Federated Learning”. In: CoRR
+abs/2003.09603 (2020).</li>
+<li>Christodoulos Pappas et al. “IPLS : A Framework for Decentralized
+Federated Learning”. In: CoRR abs/2101.01901 (2021).</li>
+<li>Briggs, C., Fan, Z., & András, P. (2020). Federated learning with hierarchical clustering of local updates to improve training on non-IID data. <em>2020 International Joint Conference on Neural Networks (IJCNN)</em>, 1-9.</li>
+<li>Sattler, F., Müller, K., & Samek, W. (2021). Clustered Federated Learning: Model-Agnostic Distributed Multitask Optimization Under Privacy Constraints. <em>IEEE Transactions on Neural Networks and Learning Systems, 32</em>, 3710-3722.</li>
+<li>Kim, Y., Håkim, E.A., Haraldson, J., Eriksson, H., Silva, J.M., & Fischione, C. (2021). Dynamic Clustering in Federated Learning. ICC 2021 - <em>IEEE International Conference on Communications</em>, 1-6.</li>
+</ol>
+<div><hr /></div>
 <div>
 <p>We would like to take a moment to express our gratitude to Dr. Subhankar Mishra, not to gain any additional brownie points but to give credit where it is due, for urging us to consider working on federated learning for this project in the first place, which made all of this possible, and for his encouragement and guidance in this respect.</p>
 </div>
